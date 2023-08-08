@@ -1,0 +1,116 @@
+<mat-toolbar color="primary" class="mat-elevation-z8">
+  <button (click)="drawer.toggle()" mat-icon-button>
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>Organisaer List</span>
+  <span class="example-spacer"></span>
+  <button routerLink="" mat-button>Home</button>
+
+  <mat-menu #company="matMenu">
+    <button mat-menu-item>Term</button>
+    <button mat-menu-item>Tax</button>
+    <button mat-menu-item>Currency</button>
+  </mat-menu>
+  <mat-menu #customer="matMenu">
+    <button mat-menu-item>Type</button>
+    <button mat-menu-item>Tax</button>
+  </mat-menu>
+  <mat-menu #product="matMenu">
+    <button mat-menu-item>Category</button>
+    <button [matMenuTriggerFor]="variant" mat-menu-item>Variant</button>
+    <button mat-menu-item>UOM</button>
+  </mat-menu>
+
+  <mat-menu #variant="matMenu">
+    <button mat-menu-item>Color</button>
+    <button mat-menu-item>Size</button>
+  </mat-menu>
+
+  <button routerLink="input" mat-button>Input</button>
+  <button routerLink="autocomplete" mat-button>Autocomplete</button>
+  <a
+    href="https://www.youtube.com/channel/UCsbmVmB_or8sVLLEq4XhE_A/join"
+    mat-raised-button
+    color="accent"
+    >Join Us</a
+  >
+</mat-toolbar>
+<mat-drawer-container autosize>
+  <mat-drawer #drawer opened="true" mode="side" position="start">
+    <mat-nav-list>
+      <mat-list-item>
+        <button routerLink="../adminhome " mat-button>
+          <mat-icon>dashboard</mat-icon> Dashboard
+        </button>
+      </mat-list-item>
+      <mat-list-item>
+        <button routerLink="../adminhome" mat-button><mat-icon>home</mat-icon> Home</button>
+      </mat-list-item>
+      <mat-list-item>
+        <button routerLink="../userlist" mat-button>
+          <mat-icon>explore</mat-icon> UserList
+        </button>
+      </mat-list-item>
+      <mat-list-item>
+        <button routerLink="..../organisaerlist" mat-button>
+          <mat-icon>table</mat-icon> OrganisaerList
+        </button>
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-button><mat-icon>settings</mat-icon> Settings</button>
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-button><mat-icon>help</mat-icon> Help</button>
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-button><mat-icon>analytics</mat-icon> analytics</button>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-drawer>
+  <mat-drawer-content>
+    <div style="text-align: center; min-height: 600px">
+      <table mat-table [dataSource]="organisaers" class="mat-elevation-z8">
+        <!-- Column definitions -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>Name</th>
+          <td mat-cell *matCellDef="let organisaers">
+            {{ organisaers.firstName }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef>Email</th>
+          <td mat-cell *matCellDef="let organisaers">
+            {{ organisaers.email }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="phoneNumber">
+          <th mat-header-cell *matHeaderCellDef>Phone Number</th>
+          <td mat-cell *matCellDef="let organisaers">
+            {{ organisaers.phone }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef>Status</th>
+          <td mat-cell *matCellDef="let row">
+            <div class="button-container">
+              <button
+                mat-icon-button
+                (click)="toggleStatus(row)"
+                class="status-button"
+              >
+                <mat-icon>{{ row.status ? "lock" : "lock_open" }}</mat-icon>
+              </button>
+            </div>
+          </td>
+        </ng-container>
+
+        <!-- Table rows -->
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>

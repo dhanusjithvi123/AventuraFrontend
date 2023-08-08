@@ -1,0 +1,100 @@
+<app-user-navbar></app-user-navbar>
+<app-search (searchTextChanged)="onSearchTextEntered($event)"></app-search>
+<div class="container">
+  <div class="row" style="margin: 10px;">
+    <ng-container *ngIf="events.length > 0; else noDataFound">
+      <div class="col-md-4" *ngFor="let event of events">
+        <div class="card mb-4" *ngIf="searchText === '' || event.eventName.toLowerCase().includes(searchText)">
+          <img class="card-img-top" [src]="getImageUrl(event)" alt="Event Image" style="max-height: 200px; max-width: 500px;">
+          <div class="card-body">
+            <h2 class="card-title">{{ event.eventName }}</h2>
+            <p class="card-text">{{ event.features }}</p>
+            <h3 class="card-text">{{ event.eventRate }}</h3>
+          </div>
+          <div class="card-footer">
+            <div class="button-group">
+              <!-- Show "Go to Booking" button if the event is already booked (isBooked === true) -->
+              <button class="btn btn-primary" *ngIf="event.isBooked">Go to Booking</button>
+              <!-- Show "Booking" button if the event is not booked (isBooked === false) -->
+              <button class="btn btn-primary" *ngIf="!event.isBooked" (click)="booking(event._id)">Booking</button>
+
+              <!-- Always show the "View More" button -->
+              <button class="btn btn-secondary" (click)="openEventDetailsDialog(event)">View More</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>
+
+<ng-template #noDataFound>
+  <div class="text-center">
+    <h3>No Data Found</h3>
+  </div>
+</ng-template>
+
+
+
+<ng-template #noDataFound>
+  <div class="text-center">
+    <h3>No Data Found</h3>
+  </div>
+</ng-template>
+
+ <!-- Footer -->
+ <footer class="bg-dark text-center text-white">
+  <!-- Grid container -->
+  <div class="container p-4">
+    <!-- Section: Social media -->
+    <section class="mb-4">
+      <!-- Facebook -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-facebook-f"></i
+      ></a>
+
+      <!-- Twitter -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-twitter"></i
+      ></a>
+
+      <!-- Google -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-google"></i
+      ></a>
+
+      <!-- Instagram -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-instagram"></i
+      ></a>
+
+      <!-- Linkedin -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-linkedin-in"></i
+      ></a>
+
+      <!-- Github -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-github"></i
+      ></a>
+    </section>
+    <!-- Section: Social media -->
+    
+    <!-- Section: Text -->
+    <section class="mb-4">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio earum
+        repellat quaerat voluptatibus placeat nam, commodi optio pariatur est quia magnam
+        eum harum corrupti dicta, aliquam sequi voluptate quas.
+      </p>
+    </section>
+    <!-- Section: Text -->
+  </div>
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color:#212529;">
+    © 2023 Copyright:
+    <a class="text-white" href="https/">AVENTURA EVENTS</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->

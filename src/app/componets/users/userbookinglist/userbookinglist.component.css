@@ -1,0 +1,29 @@
+:host {
+    display: block;
+  }
+  
+  /* Set the background color for the component */
+  :host {
+    background-color: #0c192c;
+  }
+
+  .card {
+    transition: transform 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer; /* Optional: Change the cursor on hover to indicate interactivity */
+  }
+
+
+  
+  /* Set fixed height for the card footer to ensure uniform card sizes */
+  .card-footer {
+    height: 60px; /* Adjust this value as needed */
+  }
+
+  .btn {
+    margin-right: 4px; /* Add margin to the right side of each button */
+  }

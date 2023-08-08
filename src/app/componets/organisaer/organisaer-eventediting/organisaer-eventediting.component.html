@@ -1,0 +1,61 @@
+<div style="text-align: center; min-height: 600px">
+    <div fxLayoutAlign="center" class="register">
+      <mat-card fxFlex="60" style="background-color: #3482ad; margin: 20px">
+        <form [formGroup]="eventEditingForm" (ngSubmit)="onSubmit()" style="padding: 20px" *ngIf="data">
+          <div fxLayout="row" fxLayoutAlign="space-between" fxLayoutGap="20px">
+            <div fxFlex="45">
+              <mat-form-field style="width: 100%">
+                <mat-label>Event Name</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  placeholder="Event Name"
+                  formControlName="eventName"
+                  
+                />
+              </mat-form-field>
+            </div>
+            <div fxFlex="45">
+              <mat-form-field style="width: 100%">
+                <mat-label>Event Rate</mat-label>
+                <input
+                  matInput
+                  type="number"
+                  placeholder="Event Rate"
+                  formControlName="eventRate"
+                  
+                />
+              </mat-form-field>
+            </div>
+          </div>
+  
+          <mat-form-field style="width: 100%">
+            <mat-label>Features</mat-label>
+            <input
+              matInput
+              type="text"
+              placeholder="Features"
+              formControlName="features"
+             
+            />
+          </mat-form-field>
+  
+          <mat-form-field style="width: 100%">
+            <mat-label>Phone</mat-label>
+            <input
+              matInput
+              type="number"
+              placeholder="Phone"
+              formControlName="phone"
+              
+            />
+          </mat-form-field>
+  
+          <button mat-raised-button color="primary" type="submit" [disabled]="!eventEditingForm.valid">
+            Update Now
+          </button>
+        </form>
+      </mat-card>
+    </div>
+  </div>
+  

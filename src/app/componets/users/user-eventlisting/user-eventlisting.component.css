@@ -1,0 +1,61 @@
+/* app-user-navbar.component.css */
+:host {
+    display: block;
+  }
+  
+  /* Set the background color for the component */
+  :host {
+    background-color: #0c192c;
+  }
+
+  
+  /* Optional: Adjust button styles to give them more space if needed */
+  .btn {
+    margin-right: 4px; /* Add margin to the right side of each button */
+  }
+  /* user-eventlisting.component.css */
+
+/* user-eventlisting.component.css */
+
+/* Add hover effect to the card */
+.card {
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer; /* Optional: Change the cursor on hover to indicate interactivity */
+}
+
+/* Add some spacing between cards */
+.card {
+  margin-bottom: 20px;
+}
+
+
+/* user-eventlisting.component.css */
+
+/* Set fixed height and width for card images */
+.card-img-top {
+  max-height: 200px; /* Adjust this value as needed */
+  object-fit: cover; /* This ensures the image maintains its aspect ratio */
+}
+
+/* Set fixed height for the card body to ensure uniform card sizes */
+.card-body {
+  height: 140px; /* Adjust this value as needed */
+}
+
+/* Set fixed height for the card footer to ensure uniform card sizes */
+.card-footer {
+  height: 60px; /* Adjust this value as needed */
+}
+
+/* Center the button vertically within the card footer */
+.button-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}

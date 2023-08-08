@@ -1,0 +1,44 @@
+<app-user-header></app-user-header>
+
+<div fxLayoutAlign="center" class="register">
+  <mat-card fxFlex="60" style="background-color: #3482ad; margin: 20px;">
+    <form [formGroup]="signupForm" (ngSubmit)="signUpSubmit()" style="padding: 20px;">
+      <div fxLayout="row" fxLayoutAlign="space-between" fxLayoutGap="20px">
+        <div fxFlex="45">
+          <mat-form-field style="width: 100%;">
+            <mat-label>First Name</mat-label>
+            <input matInput type="text" placeholder="First Name" formControlName="firstName" />
+          </mat-form-field>
+        </div>
+        <div fxFlex="45">
+          <mat-form-field style="width: 100%;">
+            <mat-label>Last Name</mat-label>
+            <input matInput type="text" placeholder="Last Name" formControlName="lastName" />
+          </mat-form-field>
+        </div>
+      </div>
+
+      <mat-form-field style="width: 100%;">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" placeholder="Email" formControlName="email" />
+      </mat-form-field>
+
+      <mat-form-field style="width: 100%;">
+        <mat-label>Phone</mat-label>
+        <input matInput type="number" placeholder="Phone" formControlName="phone" />
+      </mat-form-field>
+
+      <mat-form-field style="width: 100%;">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" placeholder="Password" formControlName="password" />
+      </mat-form-field>
+
+      <mat-form-field style="width: 100%;">
+        <mat-label>Confirm Password</mat-label>
+        <input matInput type="password" placeholder="Confirm Password" formControlName="confirmPassword" />
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit">Register</button>
+    </form>
+  </mat-card>
+</div>

@@ -1,0 +1,144 @@
+<app-user-navbar></app-user-navbar>
+
+<style>
+  /* Custom CSS for the carousel */
+  .banner-container {
+    position: relative; /* Add positioning context for absolute caption */
+  }
+
+  .carousel {
+    max-width: 80%; /* Adjust the maximum width of the carousel as per your requirement */
+    margin: auto; /* Center the carousel horizontally */
+    border-radius: 15px; /* Add rounded corners to the carousel container */
+    overflow: hidden; /* Hide any overflowing content to maintain the rounded corners */
+  }
+
+  .carousel-item img {
+    max-height: 500px; /* Adjust the maximum height of the carousel images */
+    object-fit: cover; /* Preserve the aspect ratio of the images while scaling */
+    border-radius: 15px; /* Add rounded corners to the carousel images */
+  }
+
+  .carousel-caption {
+    position: absolute; /* Position the caption absolutely within the carousel item */
+    top: 0; /* Position the caption at the top */
+    left: 0; /* Position the caption at the left */
+    height: max-content;
+    width: 100%; /* Make the caption span the full width of the carousel item */
+    padding: 10px; /* Add some padding to the caption */
+    background-color: rgba(
+      0,
+      0,
+      0,
+      0.5
+    ); /* Add a semi-transparent background color for the caption */
+    color: #fff; /* Set the text color for the caption */
+  }
+</style>
+
+<div class="banner-container" style="top: 8px">
+  <div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img
+          class="d-block w-100"
+          [src]="getImageUrl(data)"
+          alt="First slide"
+        />
+        <div class="carousel-caption">
+          <h3>{{ data.organisaerId.companyName }}</h3>
+          <p>Additional content or description here...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  style="
+    top: 5px;
+    margin-top: 20px; /* Add 20px gap at the top */
+    display: flex;
+    flex-direction: column; /* Arrange the image and text in a column */
+    align-items: center;
+    flex-grow: 1;
+    justify-content: center;
+  "
+>
+  <img
+    src="../assets/images/Aventura Events-logos_white -2.png"
+    alt="Center Image"
+    height="20%"
+    width="20%"
+  />
+  <h5 style="margin-top: 10px; color: white">Booking Page</h5>
+</div>
+
+<div class="container">
+  <div class="card text-center">
+    <div class="card-header">{{ data.eventName }}</div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-4">
+          <!-- Place your image here -->
+          <img
+          [src]="getImageUrl(data)"
+            alt="Event Image"
+            class="card-img"
+            style="max-height: 300px; max-width: 100%"
+          />
+        </div>
+        <div class="col-md-8">
+          <h5 class="card-title">{{ data.eventName }}</h5>
+          <p class="card-text">Event Features: {{ data.features }}</p>
+          <p class="card-text">Event Rate: {{ data.eventRate }}</p>
+          <p class="card-text">Phone: {{ data.phone }}</p>
+          <h4 class="card-title">Organizer Details</h4>
+          <p class="card-text">
+            Organizer: {{ data.organisaerId.firstName }}
+            {{ data.organisaerId.lastName }}
+          </p>
+          <p class="card-text">Company: {{ data.organisaerId.companyName }}</p>
+          <p class="card-text">
+            Organizer Email: {{ data.organisaerId.email }}
+          </p>
+          <p class="card-text">
+            Organizer Phone: {{ data.organisaerId.phone }}
+          </p>
+          <p class="card-text">
+            Organizer Address: {{ data.organisaerId.address }}
+          </p>
+        </div>
+      </div>
+      <!-- User Details Form -->
+      <form [formGroup]="userForm" (submit)="submitForm()">
+        <!-- ... (rest of the code) -->
+      
+        <div class="form-group">
+          <label for="username">Name</label>
+          <input type="text" class="form-control" id="username" formControlName="username" required />
+        </div>
+        <div class="form-group">
+          <label for="useremail">Email</label>
+          <input type="email" class="form-control" id="useremail" formControlName="useremail" required />
+        </div>
+        <div class="form-group">
+          <label for="userphone">Phone</label>
+          <input type="tel" class="form-control" id="userphone" formControlName="userphone" required />
+        </div>
+        <div class="form-group">
+          <label for="useraddress">Address</label>
+          <textarea
+            class="form-control"
+            id="useraddress"
+            formControlName="useraddress"
+            rows="3"
+            required
+          ></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Book</button>
+      </form>
+      
+    </div>
+  </div>
+</div>

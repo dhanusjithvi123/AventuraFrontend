@@ -1,0 +1,20 @@
+/* Customize the size of the logo image */
+.logo-image {
+    width: 50px; /* Set the desired width */
+    height: 50px; /* Set the desired height */
+  }
+/* user-booking.component.css */
+.header-container {
+  height: 100vh;
+  display: flex;
+}
+
+.sidenav {
+  width: 250px;
+}
+
+/* Adjust the main content area width to create space for the sidebar */
+.mat-drawer-opened .mat-drawer-content {
+  margin-left: 250px;
+}
+

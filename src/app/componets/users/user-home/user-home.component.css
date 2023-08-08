@@ -1,0 +1,17 @@
+/* app-user-navbar.component.css */
+:host {
+    display: block;
+  }
+  
+  /* Set the background color for the component */
+  :host {
+    background-color: #0c192c;
+  }
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+} 
+

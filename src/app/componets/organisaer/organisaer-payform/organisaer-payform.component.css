@@ -1,0 +1,17 @@
+.organisaer {
+    width: auto;
+    height: 204px;
+    position: absolute;
+    background: #3482AD;
+    top: 0px;
+    left: 0px;
+    overflow: hidden;
+    top: 1100px;
+    font-size: 16px;
+    text-align: center;
+    font-family: "Irish Grover", sans-serif;
+    text-transform: uppercase;
+    color: white;
+    padding: 5%;
+  }
+  

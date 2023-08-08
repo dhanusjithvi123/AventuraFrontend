@@ -1,0 +1,8 @@
+:host {
+    display: block;
+  }
+  
+  /* Set the background color for the component */
+  :host {
+    background-color: #0c192c;
+  }

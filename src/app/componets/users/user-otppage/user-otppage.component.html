@@ -1,0 +1,13 @@
+<app-user-header></app-user-header>
+
+<div fxLayoutAlign="center" class="register">
+  <mat-card fxFlex="60" style="background-color: #3482ad; margin: 20px;">
+    <form [formGroup]="OTPForm" (ngSubmit)="otpFormSubmit()" style="padding: 20px;">
+      <mat-form-field style="width: 100%;">
+        <mat-label>OTP</mat-label>
+        <input matInput type="text" placeholder="OTP" formControlName="otp" />
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit">SUBMIT</button>
+    </form> 
+  </mat-card>
+</div>

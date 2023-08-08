@@ -1,0 +1,10 @@
+/* styles.css */
+html, body {
+  height: 100%;
+}
+
+body {
+  background-color: #0c192c;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

@@ -1,0 +1,27 @@
+/* search-container.css */
+
+.search-container {
+    display: flex;
+    align-items: center;
+    background-color: #f0f0f0;
+    padding: 8px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .search-container span {
+    font-size: 16px;
+    margin-right: 8px;
+    color: #333;
+  }
+  
+  .search-container input {
+    flex: 1;
+    height: 30px;
+    padding: 4px 8px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: #333;
+  }
+  

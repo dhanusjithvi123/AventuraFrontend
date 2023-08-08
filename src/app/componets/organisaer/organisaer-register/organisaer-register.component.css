@@ -1,0 +1,28 @@
+
+  
+  .register {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+    margin: 8% auto 0;
+    width: 60%;
+    height: 500px;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .register {
+      margin: 20px auto 0;
+      width: 80%;
+      height: 30%;
+    }
+  }
+
+/* 
+  @media screen and (max-width: 1245px){
+    .forms{
+     
+    }
+    
+  }
+   */

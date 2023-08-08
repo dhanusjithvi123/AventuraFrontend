@@ -1,0 +1,11 @@
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .status-button {
+    margin: 0 auto;
+  }
+  
