@@ -34,6 +34,10 @@ export interface EventData {
 export class UserEventlistingComponent implements OnInit {
   events: EventData[] = [];
 
+
+  noDataImagePath: string = '../assets/images/no_data-removebg-preview.png'
+  noDataGif: string = ''
+
   constructor(private http: HttpClient, private dialog: MatDialog,private router: Router) {}
 
   ngOnInit(): void {
@@ -41,7 +45,7 @@ export class UserEventlistingComponent implements OnInit {
   }
 
   fetchEvents(): void {
-    this.http.get<any>('http://localhost:5000/usereventlist').subscribe(
+    this.http.get<any>('http://www.backend.aventuraevents.site/usereventlist').subscribe(
       (res: any) => {
         
         this.events = res;
@@ -75,6 +79,5 @@ export class UserEventlistingComponent implements OnInit {
     this.searchText = searchvalue;
     console.log(this.searchText);
     
-
   }
 }

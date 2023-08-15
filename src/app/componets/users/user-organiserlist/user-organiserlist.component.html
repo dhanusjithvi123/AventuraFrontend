@@ -1,6 +1,7 @@
 <app-user-navbar></app-user-navbar>
+<app-search   (searchTextChanged)="onSearchTextEntered($event)" ></app-search>
 
-<div class="container ">
+<div  class="content-container" style="top:5%;">
     <div class="row" style="top :5px">
       <div class="col-md-4" *ngFor="let event of organiser">
         <div class="card mb-4">

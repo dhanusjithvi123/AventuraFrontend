@@ -23,7 +23,7 @@ export class OrganisaerAdminComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-    this.http.get<Organisaer[]>('http://localhost:5000/organisaer/organisaerList').subscribe(
+    this.http.get<Organisaer[]>('http://www.backend.aventuraevents.site/organisaer/organisaerList').subscribe(
       (response) => {
         this.organisaers = response;
         console.log();

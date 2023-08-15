@@ -105,7 +105,7 @@ export class OrganisaerEventaddingComponent implements OnInit {
 
       this.http
         .post(
-          `http://localhost:5000/organisaer/eventadding/${this.organisaerId}`,
+          `http://www.backend.aventuraevents.site/organisaer/eventadding/${this.organisaerId}`,
           requestBody
         )
         .subscribe(

@@ -35,7 +35,7 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule, MatRippleModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
-import { UppercasePipe } from './pipes/pipe1.pipe';
+import { LowercasePipe} from './pipes/pipe1.pipe';
 import { AuthGuard } from './guard/admin/auth-guard.guard';
 import { CookieService } from 'ngx-cookie-service';
 import { CookieModule } from 'ngx-cookie';
@@ -68,7 +68,10 @@ import { UserbookinglistComponent } from './componets/users/userbookinglist/user
 import { SearchComponent } from './componets/users/search/search.component';
 import { UserProfileComponent } from './componets/users/user-profile/user-profile.component';
 import { ChartModule } from 'angular-highcharts';
-
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { OrganiserprofileComponent } from './componets/organisaer/organiserprofile/organiserprofile.component';
+import { OrganiserRequestComponent } from './componets/admin/organiser-request/organiser-request.component';
+import { ForgetpasswordComponent } from './componets/users/forgetpassword/forgetpassword.component';
 
 
 
@@ -100,7 +103,7 @@ library.add(faDashboard, faLocation, faShop, faBox, faMoneyBill, faChartBar, faC
     OrganisaerHomeComponent,
     NotFoundComponent,
     OrganisaersLandingPageComponent,
-    UppercasePipe,
+    LowercasePipe,
     OrganisaerPayformComponent,
     UserNavbarComponent,
     UserLandingpageComponent,
@@ -119,6 +122,9 @@ library.add(faDashboard, faLocation, faShop, faBox, faMoneyBill, faChartBar, faC
     UserbookinglistComponent,
     SearchComponent,
     UserProfileComponent,
+    OrganiserprofileComponent,
+    OrganiserRequestComponent,
+    ForgetpasswordComponent,
   ],
   imports: [
     BrowserModule,
@@ -149,7 +155,7 @@ library.add(faDashboard, faLocation, faShop, faBox, faMoneyBill, faChartBar, faC
     FontAwesomeModule,
     MatDialogModule,
     ChartModule ,
-
+    MatProgressBarModule,
     
 
   ],

@@ -24,7 +24,7 @@ export class UserlistAdminComponent implements OnInit {
   constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
-    this.http.get<User[]>('http://localhost:5000/users').subscribe(
+    this.http.get<User[]>('http://www.backend.aventuraevents.site/users').subscribe(
       (response) => {
         this.users = response;
       },
@@ -39,7 +39,7 @@ export class UserlistAdminComponent implements OnInit {
     const userId = user._id; // Use the _id field instead of organiserId
     console.log(userId );
     
-    this.http.put(`http://localhost:5000/blocking/${userId }`, user ).subscribe(
+    this.http.put(`http://www.backend.aventuraevents.site/blocking/${userId }`, user ).subscribe(
       (response) => {
         Swal.fire('Success', 'User Block successful!', 'success')
      
@@ -50,7 +50,7 @@ export class UserlistAdminComponent implements OnInit {
     ); 
   }
   logout(): void {
-    this.http.post('http://localhost:5000/admin/logout', {}).subscribe(() => {
+    this.http.post('http://www.backend.aventuraevents.site/admin/logout', {}).subscribe(() => {
       localStorage.removeItem('token');
       this.router.navigate(['/adminlogin']);
     });

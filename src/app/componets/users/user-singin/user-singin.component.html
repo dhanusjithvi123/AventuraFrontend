@@ -38,7 +38,9 @@
         <input matInput type="password" placeholder="Confirm Password" formControlName="confirmPassword" />
       </mat-form-field>
 
-      <button mat-raised-button color="primary" type="submit">Register</button>
+      <button mat-raised-button color="primary" type="submit">Register</button> or
+
+      <button mat-raised-button color="primary" (click)="loginFormSubmit()">Login</button>
     </form>
   </mat-card>
 </div>

@@ -47,24 +47,24 @@
         <div class="carousel-item active">
           <img
             class="d-block w-100"
-            src="../assets/images/home-page banner 1.jpg"
+            src="/src/assets/images/home-page banner 1.jpg"
             alt="First slide"
           />
           <div class="carousel-caption">
-            <h3>Caption for Slide 1</h3>
-            <p>Additional content or description here...</p>
+            <h3> {{ message }}</h3>
+            <p> Welcome To Aventura Events.</p>
           </div>
         </div>
         <div class="carousel-item">
           <img
             class="d-block w-100"
-            src="../assets/images/team-1.jpg"
+            src="/src/assets/images/team-1.jpg"
             alt="Second slide"
           />
           <div class="carousel-caption">
-            <h3>Caption for Slide 2</h3>
+            <h3>You Can select</h3>
             <p>Additional content or description here...</p>
-          </div>
+          </div> 
         </div>
       </div>
     </div>
@@ -81,7 +81,7 @@
     "
   >
     <img
-      src="../assets/images/Aventura Events-logos_white -2.png"
+      src="/src/assets/images/Aventura Events-logos_white -2.png"
       alt="Center Image"
       height="20%"
       width="20%"
@@ -95,7 +95,7 @@
       <div style="display: flex; align-items: center">
         <!-- Add the image here -->
         <img
-          src="../assets/images/side-home-banner.jpg"
+          src="/src/assets/images/side-home-banner.jpg"
           alt="Image"
           style="width: 400px; height: 500px; margin-right: 15px"
         />
@@ -115,36 +115,31 @@
     </div>
   </div>
 
-  <div class="card-deck" style="margin-top: 10px; ">
-    <div class="card">
-      <img class="card-img-top" src="../assets/images/side-home-banner.jpg" alt="Card image cap"  style=" height: 500px;  ">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
-      <div class="card-footer">
-        <small class="text-muted">Last updated 3 mins ago</small>
-      </div>
-    </div>
-    <div class="card">
-      <img class="card-img-top" src="../assets/images/side-home-banner.jpg" alt="Card image cap"  style="width: 100px; height: 100px; margin-right: 10px">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-      </div>
-      <div class="card-footer">
-        <small class="text-muted">Last updated 3 mins ago</small>
-      </div>
-    </div>
-    <div class="card">
-      <img class="card-img-top" src="../assets/images/side-home-banner.jpg" alt="Card image cap"  style="width: 100px; height: 100px; margin-right: 10px"  >
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-      </div>
-      <div class="card-footer">
-        <small class="text-muted">Last updated 3 mins ago</small>
-      </div>
+  <div class="container">
+    <div class="row" style="margin: 10px;">
+      <ng-container>
+        <div class="col-md-4" *ngFor="let event of events">
+          <div class="card mb-4">
+            <img class="card-img-top" [src]="getImageUrl(event)" alt="Event Image" style="max-height: 200px; max-width: 500px;">
+            <div class="card-body">
+              <h2 class="card-title">{{ event.eventName }}</h2>
+              <p class="card-text">{{ event.features }}</p>
+              <h3 class="card-text">{{ event.eventRate }}</h3>
+            </div>
+            <div class="card-footer">
+              <div class="button-group">
+                <!-- Show "Go to Booking" button if the event is already booked (isBooked === true) -->
+                <button class="btn btn-primary" *ngIf="event.isBooked">Go to Booking</button>
+                <!-- Show "Booking" button if the event is not booked (isBooked === false) -->
+                <button class="btn btn-primary" *ngIf="!event.isBooked" (click)="booking(event._id)">Booking</button>
+  
+                <!-- Always show the "View More" button -->
+                <button class="btn btn-secondary" (click)="openEventDetailsDialog(event)">View More</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
     </div>
   </div>
 </div>
@@ -205,3 +200,5 @@
   <!-- Copyright -->
 </footer>
 <!-- Footer -->
+
+

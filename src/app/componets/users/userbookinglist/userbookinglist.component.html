@@ -1,6 +1,7 @@
 <app-user-navbar></app-user-navbar>
 <div class="container">
   <div class="row">
+    <ng-container *ngIf="bookedlist.length > 0; else noDataFound"></ng-container>
     <div class="col-md-4" *ngFor="let event of bookedlist">
       <div class="card mb-4">
         <img
@@ -32,6 +33,14 @@
     </div>
   </div>
 </div>
+
+<ng-template #noDataFound>
+  <div class="text-center">
+    <h3 style="color: white;">No Data Found</h3>
+    <img src="{{ noDataImagePath }}" alt="No Data Illustration">
+  </div>
+</ng-template>
+
 
 <!-- Footer -->
 <footer class="bg-dark text-center text-white">

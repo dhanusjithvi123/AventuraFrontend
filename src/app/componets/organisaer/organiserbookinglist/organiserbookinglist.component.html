@@ -1,0 +1,81 @@
+<mat-toolbar color="primary" class="mat-elevation-z8">
+  <button (click)="drawer.toggle()" mat-icon-button>
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>Organisaer</span>
+  <span class="example-spacer"></span>
+  <button routerLink="../organisaerhome" mat-button>Home</button>
+
+  
+</mat-toolbar>
+<mat-drawer-container autosize>
+  <mat-drawer
+    #drawer
+    opened="true"
+    color="primary"
+    mode="side"
+    position="start"
+  >
+    <mat-nav-list>
+      <mat-list-item>
+        <button routerLink="../organisaerhome" mat-button>
+          <mat-icon>dashboard</mat-icon> Dashboard
+        </button>
+      </mat-list-item>
+      <mat-list-item>
+        <button routerLink="../organisaerhome" mat-button>
+          <mat-icon>home</mat-icon> Home
+        </button>
+      </mat-list-item>
+      <mat-list-item>
+        <button routerLink="../eventadding" mat-button>
+          <mat-icon>explore</mat-icon> Add Event
+        </button>
+      </mat-list-item>
+      <mat-list-item>
+        <button routerLink="../eventlist" mat-button>
+          <mat-icon>table</mat-icon> Event List
+        </button>
+      </mat-list-item>
+      <mat-list-item>
+        <button routerLink="../bookedevent">
+          <mat-icon>Settings</mat-icon> BookedEvents
+        </button>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-drawer>
+  <mat-drawer-content>
+    <div style="text-align: center; min-height: 500px">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>Event Name</th>
+            <th>User Name</th>
+            <th>User Email</th>
+            <th>Oder Status</th>
+            <th>View More</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let booking of dataSource.data">
+            <td>
+                <img [src]="booking.eventId.image[0].url" alt="Event Image" style="max-height: 100px; max-width: 100px;">
+            </td>
+            <td>{{ booking.eventId.eventName }}</td>
+            <td>{{ booking.userId.firstName }} {{ booking.userId.lastName }}</td>
+            <td>{{ booking.userId.email }}</td>
+            <td>{{ booking.Status }}</td>
+            
+            <td>
+              <button class="btn btn-secondary" (click)="openEventDetailsDialog(booking)">View More</button>
+            </td>
+        </tr>
+        
+        </tbody>
+      </table>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>
+
+

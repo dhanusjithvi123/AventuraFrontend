@@ -67,7 +67,7 @@ export class UserSinginComponent implements OnInit {
   signUpSubmit() {
     if (this.signupForm.valid) {
       const formData = this.signupForm.value;
-      this.http.post('http://localhost:5000/register', formData).subscribe(
+      this.http.post('http://www.backend.aventuraevents.site/register', formData).subscribe(
         (response) => {
           Swal.fire('Success', 'Registration successful!', 'success').then(
             () => {
@@ -102,5 +102,11 @@ export class UserSinginComponent implements OnInit {
     } else {
       confirmPasswordControl?.setErrors(null);
     }
+  }
+  loginFormSubmit(): void {
+    // Your login logic here
+
+    // After successful login, navigate to a specific route
+    this.router.navigate(['/login']); // Replace 'dashboard' with your desired route
   }
 }

@@ -1,21 +1,182 @@
 <app-user-header></app-user-header>
 
-<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img
-        class="d-block w-100"
-        src="../assets/images/home-page banner 1.jpg"
-        alt="First slide"
-      />
-    </div>
-    <div class="carousel-item">
-      <img
-        class="d-block w-100"
-        src="../assets/images/team-1.jpg"
-        alt="Second slide"
-      />
+
+
+<style>
+  /* Custom CSS for the carousel */
+  .banner-container {
+    position: relative; /* Add positioning context for absolute caption */
+  }
+
+  .carousel {
+    max-width: 80%; /* Adjust the maximum width of the carousel as per your requirement */
+    margin: auto; /* Center the carousel horizontally */
+    border-radius: 15px; /* Add rounded corners to the carousel container */
+    overflow: hidden; /* Hide any overflowing content to maintain the rounded corners */
+  }
+
+  .carousel-item img {
+    max-height: 500px; /* Adjust the maximum height of the carousel images */
+    object-fit: cover; /* Preserve the aspect ratio of the images while scaling */
+    border-radius: 15px; /* Add rounded corners to the carousel images */
+  }
+
+  .carousel-caption {
+    position: absolute; /* Position the caption absolutely within the carousel item */
+    top: 0; /* Position the caption at the top */
+    left: 0; /* Position the caption at the left */
+    height: max-content;
+    width: 100%; /* Make the caption span the full width of the carousel item */
+    padding: 10px; /* Add some padding to the caption */
+    background-color: rgba(
+      0,
+      0,
+      0,
+      0.5
+    ); /* Add a semi-transparent background color for the caption */
+    color: #fff; /* Set the text color for the caption */
+  }
+</style>
+
+<div class="container">
+  <div class="banner-container" style="top: 8px">
+    <div
+      id="carouselExampleSlidesOnly"
+      class="carousel slide"
+      data-ride="carousel"
+    >
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img
+            class="d-block w-100"
+            src="/src/assets/images/home-page banner 1.jpg"
+            alt="First slide"
+          />
+          <div class="carousel-caption">
+            <h3> Login  or Singup</h3>
+            <p> Welcome To Aventura Events.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img
+            class="d-block w-100"
+            src="/src/assets/images/team-1.jpg"
+            alt="Second slide"
+          />
+          <div class="carousel-caption">
+            <h3>You Can select</h3>
+            <p>Additional content or description here...</p>
+          </div> 
+        </div>
+      </div>
     </div>
   </div>
+
+  <div
+    style="
+      top: 5px;
+      margin-top: 20px; /* Add 20px gap at the top */
+      display: flex;
+      align-items: center;
+      flex-grow: 1;
+      justify-content: center;
+    "
+  >
+    <img
+      src="../assets/images/Aventura Events-logos_black.png"
+      alt="Center Image"
+      height="20%"
+      width="20%"
+    />
+  </div>
+
+  
+  <div class="card border-primary mb-3" class="card">
+    <div class="card-header">Featured</div>
+    <div class="card-body">
+      <div style="display: flex; align-items: center">
+        <!-- Add the image here -->
+        <img
+          src="/src/assets/images/side-home-banner.jpg"
+          alt="Image"
+          style="width: 400px; height: 500px; margin-right: 15px"
+        />
+        <!-- Image style can be adjusted as needed -->
+
+        <div>
+          <!-- Rest of the card content -->
+          <h5 class="card-title">Special title treatment</h5>
+          <p class="card-text">
+            AVENTURA EVENTS IS A FULL-SERVICE EVENT MANAGEMENT FIRM BASED IN CALGARY, ALBERTA.
+ OUR COMPANY WAS FOUNDED ON THE FUSION OF OUR PASSION FOR BOTH BUSINESS AND EVENTS.
+ WE PRIDE OURSELVES ON BRINGING A FRESH AND UNIQUE APPROACH TO THE EVENT MANAGEMENT INDUSTRY. AT AVENTURA EVENTS, WE ARE DEDICATED TO DELIVERING EXCEPTIONAL EXPERIENCES AND   CREATING MEMORABLE OCCASIONS FOR OUR CLIENTS.WITH OUR EXPERTISE, ATTENTION TO DETAIL, AND CREATIVITY,  WE STRIVE TO EXCEED EXPECTATIONS AND MAKE EVERY EVENT A REMARKABLE ADVENTURE.
+          </p>
+          <a href="../singin" class="btn btn-primary">Go Singup</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
 </div>
+
+  <!-- Footer -->
+<footer class="bg-dark text-center text-white">
+  <!-- Grid container -->
+  <div class="container p-4">
+    <!-- Section: Social media -->
+    <section class="mb-4">
+      <!-- Facebook -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-facebook-f"></i
+      ></a>
+
+      <!-- Twitter -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-twitter"></i
+      ></a>
+
+      <!-- Google -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-google"></i
+      ></a>
+
+      <!-- Instagram -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-instagram"></i
+      ></a>
+
+      <!-- Linkedin -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-linkedin-in"></i
+      ></a>
+
+      <!-- Github -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="fab fa-github"></i
+      ></a>
+    </section>
+    <!-- Section: Social media -->
+    
+    <!-- Section: Text -->
+    <section class="mb-4">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio earum
+        repellat quaerat voluptatibus placeat nam, commodi optio pariatur est quia magnam
+        eum harum corrupti dicta, aliquam sequi voluptate quas.
+      </p>
+    </section>
+    <!-- Section: Text -->
+  </div>
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color:#212529;">
+    © 2023 Copyright:
+    <a class="text-white" href="https://mdbootstrap.com/">AVENTURA EVENTS</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->
+
+
+
 

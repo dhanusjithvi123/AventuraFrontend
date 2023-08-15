@@ -39,7 +39,7 @@ export class AdminCategoryAddandEditComponent   implements OnInit  {
   ngOnInit(): void {
     this.initializeForm();
 
-    this.http.get<category[]>('http://localhost:5000/admin/categorylist').subscribe(
+    this.http.get<category[]>('http://www.backend.aventuraevents.site/admin/categorylist').subscribe(
       (response) => {
         this.category = response;
         console.log();
@@ -64,7 +64,7 @@ export class AdminCategoryAddandEditComponent   implements OnInit  {
       const formData = this.categoryForm.value;
       console.log(formData);
   
-      this.http.post('http://localhost:5000/admin/Categoryadding', formData)
+      this.http.post('http://www.backend.aventuraevents.site/admin/Categoryadding', formData)
         .subscribe(
           (response) => {
             console.log(response); // Add this line to see the response from the server

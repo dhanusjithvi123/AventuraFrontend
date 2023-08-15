@@ -32,7 +32,7 @@ export class UserOrganiserlistComponent implements OnInit {
 
 
   fetchEvents(): void {
-    this.http.get<any>('http://localhost:5000/userorganisaerList').subscribe(
+    this.http.get<any>('http://www.backend.aventuraevents.site/userorganisaerList').subscribe(
       (res: any) => {
         this.organiser= res;
       },
@@ -42,16 +42,21 @@ export class UserOrganiserlistComponent implements OnInit {
     );
   }
 
+  searchText: string = '';
 
-  // getImageUrl(event: EventData): string {
-  //   const image = event.image[0];
-  //   return image ? image.url : '';
-  // }
 
+  onSearchTextEntered(searchvalue : string){
+    this.searchText = searchvalue;
+    console.log(this.searchText);
+    
+  }
+
+ 
  
   booking(id: any) {
   this.router.navigate([`/booking/${id}`])
 }
+
 
 
   // openEventDetailsDialog(event: EventData): void {

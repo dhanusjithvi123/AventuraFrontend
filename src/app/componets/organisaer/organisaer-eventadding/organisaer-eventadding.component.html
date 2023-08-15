@@ -2,68 +2,45 @@
   <button (click)="drawer.toggle()" mat-icon-button>
     <mat-icon>menu</mat-icon>
   </button>
-  <span>Event Adding</span>
+  <span>Organisaer</span>
   <span class="example-spacer"></span>
   <button routerLink="../organisaerhome" mat-button>Home</button>
 
-  <mat-menu #company="matMenu">
-    <button mat-menu-item>Term</button>
-    <button mat-menu-item>Tax</button>
-    <button mat-menu-item>Currency</button>
-  </mat-menu>
-  <mat-menu #customer="matMenu">
-    <button mat-menu-item>Type</button>
-    <button mat-menu-item>Tax</button>
-  </mat-menu>
-  <mat-menu #product="matMenu">
-    <button mat-menu-item>Category</button>
-    <button [matMenuTriggerFor]="variant" mat-menu-item>Variant</button>
-    <button mat-menu-item>UOM</button>
-  </mat-menu>
-
-  <mat-menu #variant="matMenu">
-    <button mat-menu-item>Color</button>
-    <button mat-menu-item>Size</button>
-  </mat-menu>
-
-  <button routerLink="input" mat-button>Input</button>
-  <button routerLink="autocomplete" mat-button>Autocomplete</button>
-  <a
-    href="https://www.youtube.com/channel/UCsbmVmB_or8sVLLEq4XhE_A/join"
-    mat-raised-button
-    color="accent"
-    >Join Us</a
-  >
+  
 </mat-toolbar>
 <mat-drawer-container autosize>
-  <mat-drawer #drawer opened="true" mode="side" position="start">
+  <mat-drawer
+    #drawer
+    opened="true"
+    color="primary"
+    mode="side"
+    position="start"
+  >
     <mat-nav-list>
       <mat-list-item>
-        <button routerLink=" " mat-button>
+        <button routerLink="../organisaerhome" mat-button>
           <mat-icon>dashboard</mat-icon> Dashboard
         </button>
       </mat-list-item>
       <mat-list-item>
-        <button routerLink="" mat-button><mat-icon>home</mat-icon> Home</button>
-      </mat-list-item>
-      <mat-list-item>
-        <button routerLink="" mat-button>
-          <mat-icon>explore</mat-icon> UserList
+        <button routerLink="../organisaerhome" mat-button>
+          <mat-icon>home</mat-icon> Home
         </button>
       </mat-list-item>
       <mat-list-item>
-        <button routerLink="table" mat-button>
-          <mat-icon>table</mat-icon> Table
+        <button routerLink="../eventadding" mat-button>
+          <mat-icon>explore</mat-icon> Add Event
         </button>
       </mat-list-item>
       <mat-list-item>
-        <button mat-button><mat-icon>settings</mat-icon> Settings</button>
+        <button routerLink="../eventlist" mat-button>
+          <mat-icon>table</mat-icon> Event List
+        </button>
       </mat-list-item>
       <mat-list-item>
-        <button mat-button><mat-icon>help</mat-icon> Help</button>
-      </mat-list-item>
-      <mat-list-item>
-        <button mat-button><mat-icon>analytics</mat-icon> analytics</button>
+        <button routerLink="../bookedevent">
+          <mat-icon>Settings</mat-icon> BookedEvents
+        </button>
       </mat-list-item>
     </mat-nav-list>
   </mat-drawer>

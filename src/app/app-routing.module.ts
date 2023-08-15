@@ -30,6 +30,9 @@ import { OrganiserbookinglistComponent } from './componets/organisaer/organiserb
 import { UserbookinglistComponent } from './componets/users/userbookinglist/userbookinglist.component';
 import { AdminCategoryAddandEditComponent } from './componets/admin/admin-category-addand-edit/admin-category-addand-edit.component';
 import { UserProfileComponent } from './componets/users/user-profile/user-profile.component';
+import { OrganiserprofileComponent } from './componets/organisaer/organiserprofile/organiserprofile.component';
+import { OrganiserRequestComponent } from './componets/admin/organiser-request/organiser-request.component';
+import { ForgetpasswordComponent } from './componets/users/forgetpassword/forgetpassword.component';
 
 const routes: Routes = [
   { path: '', component: UserLandingpageComponent },
@@ -42,6 +45,7 @@ const routes: Routes = [
   { path: 'userorgiserlist', component: UserOrganiserlistComponent },
   { path: 'bookedhistory', component: UserbookinglistComponent },
   {path: 'profile/:id',component:UserProfileComponent},
+  {path:'forgetpassword',component:ForgetpasswordComponent},
 
   { path: 'organisaer', component: OrganisaersLandingPageComponent },
   { path: 'organisaerlogin', component: OrganisaerLoginComponent },
@@ -56,11 +60,13 @@ const routes: Routes = [
   { path: 'eventlist', component: EventlistComponent },
   { path: 'editevent/:id', component: OrganisaerEventeditingComponent },
   { path: 'bookedevent', component: OrganiserbookinglistComponent },
+  { path: 'organsierprofile', component:OrganiserprofileComponent},
 
   { path: 'addcategory', component: AdminCategoryAddandEditComponent },
   { path: 'categorylist', component: AdminCategorylistComponent },
   { path: 'userlist', component: UserlistAdminComponent },
   { path: 'organisaerlist', component: OrganisaerAdminComponent },
+  { path: 'verfiy',component:OrganiserRequestComponent},
   { path: 'adminlogin', component: AdminLoginComponent },
   {
     path: 'adminhome',

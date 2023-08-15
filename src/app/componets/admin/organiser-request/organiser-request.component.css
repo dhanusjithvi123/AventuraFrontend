@@ -1,0 +1,19 @@
+/* organiser-request.component.css */
+.table-container {
+    text-align: center;
+    min-height: 600px;
+  }
+  
+  .status-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .status-button {
+    margin-right: 8px;
+  }
+  
+  .verify-container {
+    color: #777;
+  }
+  

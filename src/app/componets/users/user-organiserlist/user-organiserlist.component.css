@@ -6,3 +6,8 @@
   :host {
     background-color: #0c192c;
   }
+/* Add this to your global styles or component-specific styles */
+.content-container {
+  margin-top: 50px;
+  margin-bottom: 50px; /* Adjust the value as needed */
+}

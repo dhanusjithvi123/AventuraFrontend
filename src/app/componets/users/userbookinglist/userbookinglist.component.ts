@@ -39,11 +39,13 @@ export class UserbookinglistComponent implements OnInit {
 
   constructor(private http: HttpClient) {}
 
+  noDataImagePath: string = '../assets/images/no_data-removebg-preview.png'
+
   ngOnInit(): void {
     const userId = localStorage.getItem('userId');
 
     this.http
-      .get<any>(`http://localhost:5000/userbookedevent/${userId}`)
+      .get<any>(`http://www.backend.aventuraevents.site/userbookedevent/${userId}`)
       .subscribe(
         (response) => {
           console.log(response);
@@ -68,7 +70,7 @@ export class UserbookinglistComponent implements OnInit {
   }
 
   cancelBooking(bookingId: string, eventId: string): void {
-    this.http.put<any>(`http://localhost:5000/cancelBooking/${bookingId}`, {})
+    this.http.put<any>(`http://www.backend.aventuraevents.site/cancelBooking/${bookingId}`, {})
       .subscribe(
         (response) => {
           console.log(`Cancelled booking with ID: ${bookingId}`);
@@ -88,7 +90,7 @@ export class UserbookinglistComponent implements OnInit {
       // ... Other fields to update if needed
     };
   
-    this.http.put<any>(`http://localhost:5000/updateEvent/${eventId}`, updateData)
+    this.http.put<any>(`http://www.backend.aventuraevents.site/updateEvent/${eventId}`, updateData)
       .subscribe(
         (response) => {
           console.log(`Updated event booking status for event ID: ${eventId}`);

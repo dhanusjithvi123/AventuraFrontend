@@ -2,38 +2,11 @@
   <button (click)="drawer.toggle()" mat-icon-button>
     <mat-icon>menu</mat-icon>
   </button>
-  <span>Organisaer Home</span>
+  <span>Organisaer</span>
   <span class="example-spacer"></span>
-  <button routerLink="" mat-button>Home</button>
+  <button routerLink="../organisaerhome" mat-button>Home</button>
 
-  <mat-menu #company="matMenu">
-    <button mat-menu-item>Term</button>
-    <button mat-menu-item>Tax</button>
-    <button mat-menu-item>Currency</button>
-  </mat-menu>
-  <mat-menu #customer="matMenu">
-    <button mat-menu-item>Type</button>
-    <button mat-menu-item>Tax</button>
-  </mat-menu>
-  <mat-menu #product="matMenu">
-    <button mat-menu-item>Category</button>
-    <button [matMenuTriggerFor]="variant" mat-menu-item>Variant</button>
-    <button mat-menu-item>UOM</button>
-  </mat-menu>
-
-  <mat-menu #variant="matMenu">
-    <button mat-menu-item>Color</button>
-    <button mat-menu-item>Size</button>
-  </mat-menu>
-
-  <button routerLink="input" mat-button>Input</button>
-  <button routerLink="autocomplete" mat-button>Autocomplete</button>
-  <a
-    href="https://www.youtube.com/channel/UCsbmVmB_or8sVLLEq4XhE_A/join"
-    mat-raised-button
-    color="accent"
-    >Join Us</a
-  >
+  
 </mat-toolbar>
 <mat-drawer-container autosize>
   <mat-drawer
@@ -45,7 +18,7 @@
   >
     <mat-nav-list>
       <mat-list-item>
-        <button routerLink="../organisaerhome " mat-button>
+        <button routerLink="../organisaerhome" mat-button>
           <mat-icon>dashboard</mat-icon> Dashboard
         </button>
       </mat-list-item>
@@ -66,68 +39,89 @@
       </mat-list-item>
       <mat-list-item>
         <button routerLink="../bookedevent">
-          <mat-icon>BookedEvent</mat-icon> Settings
+          <mat-icon>Settings</mat-icon> BookedEvents
         </button>
-      </mat-list-item>
-      <mat-list-item>
-        <button mat-button><mat-icon>help</mat-icon> Help</button>
-      </mat-list-item>
-      <mat-list-item>
-        <button mat-button><mat-icon>analytics</mat-icon> analytics</button>
       </mat-list-item>
     </mat-nav-list>
   </mat-drawer>
   <mat-drawer-content>
-    <!-- <div style="text-align: center; min-height: 600px">
-      <div class="col-xl-3 col-md-6 mb-4">
-        <div class="card border-left-primary shadow h-100 py-2">
-          <div class="card-body">
-            <div class="row no-gutters align-items-center">
-              <div class="col mr-2">
-                <div
-                  class="text-xs font-weight-bold text-primary text-uppercase mb-1"
-                >
-                  Sales(Monthly)
+    <div style="text-align: center; min-height: 600px">
+      <div class="row">
+        <!-- ... Your existing code ... -->
+        <div class="row justify-content-between">
+          <div class="col-xl-3 col-md-6 mb-4">
+            <!-- Card 1 -->
+            <div class="card border-left-primary shadow h-100 py-2">
+              <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                      Total Events
+                    </div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{ totalPackage }}</div>
+                  </div>
+                  <div class="col-auto">
+                    <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                  </div>
                 </div>
-                <div class="h5 mb-0 font-weight-bold text-gray-800"></div>
-              </div>
-              <div class="col-auto">
-                <i class="fas fa-calendar fa-2x text-gray-300"></i>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-
-      <div class="col-xl-3 col-md-6 mb-4">
-        <div class="card border-left-success shadow h-100 py-2">
-          <div class="card-body">
-            <div class="row no-gutters align-items-center">
-              <div class="col mr-2">
-                <div
-                  class="text-xs font-weight-bold text-success text-uppercase mb-1"
-                >
-                  Earnings (Annual)
+        
+          <div class="col-xl-3 col-md-6 mb-4">
+            <!-- Card 2 -->
+            <div class="card border-left-success shadow h-100 py-2">
+              <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                      Bookings
+                    </div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{ totalOrders }}</div>
+                  </div>
+                  <div class="col-auto">
+                    <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                  </div>
                 </div>
-                <div class="h5 mb-0 font-weight-bold text-gray-800">
-                  $215,000
-                </div>
-              </div>
-              <div class="col-auto">
-                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
               </div>
             </div>
           </div>
+        
+          <div class="col-xl-3 col-md-6 mb-4">
+            <!-- Card 3 -->
+            <div class="card border-left-success shadow h-100 py-2">
+              <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                      Profile
+                    </div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800"></div>
+                  </div>
+                  <div class="col-auto">
+                    <!-- <i class="fas fa-dollar-sign fa-2x text-gray-300"></i> -->
+                  </div>
+                </div>
+              </div>
+              <!-- Add routerLink to navigate on button click -->
+              <a routerLink="../organsierprofile" class="stretched-link"></a>
+            </div>
+          </div>
+          
         </div>
-      </div>
-    </div> -->
+        
+<!-- ... Your existing code ... -->
 
-    <div class="row">
-      <div class="col-lg-6">
-        <h2>Users</h2>
-        <canvas id="piechart"></canvas>
+      </div>
+  
+      <div class="row">
+        <div class="col-lg-6">
+          <h2>Users</h2>
+          <canvas id="piechart"></canvas>
+        </div>
+       
       </div>
     </div>
-    
   </mat-drawer-content>
+  
 </mat-drawer-container>
