@@ -7,7 +7,7 @@ import { CookieService } from 'ngx-cookie-service';
   providedIn: 'root'
 })
 export class UserServiceService {
-  private baseUrl = 'http://www.backend.aventuraevents.site';
+  private baseUrl = 'https://backend.aventuraevents.site';
 
   constructor(  private http: HttpClient,) { }
 
@@ -16,6 +16,10 @@ export class UserServiceService {
     return this.http.post<any>(`${this.baseUrl}/login`, user, {
       withCredentials: true,
     });
+  }
+
+  getBaseUrl(): string {
+    return this.baseUrl;
   }
 
 

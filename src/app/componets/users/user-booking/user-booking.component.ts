@@ -99,7 +99,7 @@ export class UserBookingComponent implements OnInit {
   }
 
   fetchEvents(): void {
-    this.http.get<any>(`http://www.backend.aventuraevents.site/booking/${this.id}`).subscribe(
+    this.http.get<any>(`https://backend.aventuraevents.site/booking/${this.id}`).subscribe(
       (res: any) => {
         this.data = res;
         console.log(res);
@@ -150,7 +150,7 @@ export class UserBookingComponent implements OnInit {
     // For example, you can send the form data to the backend using HttpClient.post()
     // ... (previous code)
     this.http
-      .post<any>('http://www.backend.aventuraevents.site/submit_booking', formData)
+      .post<any>('https://backend.aventuraevents.site/submit_booking', formData)
       .subscribe(
         (res: any) => {
           console.log('Form submitted successfully!', res);
@@ -223,7 +223,7 @@ export class UserBookingComponent implements OnInit {
     console.log("userid"+id);
     
     // Send the data to the backend API
-    this.http.post<any>('http://www.backend.aventuraevents.site/paymetcomformsend', {
+    this.http.post<any>('https://backend.aventuraevents.site/paymetcomformsend', {
       orderId: this.razorpayResponse.razorpay_order_id.toString(),
       name: this.userForm.value.username,
       email: this.userForm.value.useremail,

@@ -45,7 +45,7 @@ export class UserEventlistingComponent implements OnInit {
   }
 
   fetchEvents(): void {
-    this.http.get<any>('http://www.backend.aventuraevents.site/usereventlist').subscribe(
+    this.http.get<any>('https://backend.aventuraevents.site/usereventlist').subscribe(
       (res: any) => {
         
         this.events = res;

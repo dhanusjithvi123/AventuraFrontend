@@ -24,7 +24,7 @@ export class OrganiserRequestComponent implements OnInit {
   constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
-    this.http.get<User[]>('http://www.backend.aventuraevents.site/organisaer/organisaerRequestList').subscribe(
+    this.http.get<User[]>('https://backend.aventuraevents.site/organisaer/organisaerRequestList').subscribe(
       (response) => {
         console.log(response);
         
@@ -56,7 +56,7 @@ export class OrganiserRequestComponent implements OnInit {
     user.verfiy = !user.verfiy;
     const userId = user._id;
   
-    this.http.put(`http://www.backend.aventuraevents.site/organisaer/verfiyconfrom/${userId}`, user).subscribe(
+    this.http.put(`https://backend.aventuraevents.site/organisaer/verfiyconfrom/${userId}`, user).subscribe(
       (response) => {
         Swal.fire('Success', 'User Verification updated!', 'success');
       },

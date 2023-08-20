@@ -27,7 +27,7 @@ export class OrganisaerHomeComponent implements OnInit {
       return;
     }
 
-    this.http.get<any>(`http://www.backend.aventuraevents.site/organisaer/dashbord/${organisaerId}`)
+    this.http.get<any>(`https://backend.aventuraevents.site/organisaer/dashbord/${organisaerId}`)
       .subscribe(
         (data: any) => {
           console.log('Fetched data:', data); // Debugging: Check the structure of the fetched data
@@ -52,7 +52,7 @@ export class OrganisaerHomeComponent implements OnInit {
   //     return;
   //   }
     
-  //   this.http.get<any>(`http://localhost:5000/organisaer/bookinggraph/${organisaerId}`)
+  //   this.http.get<any>(`https://backend.aventuraevents.siteorganisaer/bookinggraph/${organisaerId}`)
   //     .subscribe(
   //       (data: any) => {
   //         console.log('Fetched booking data:', data);
@@ -76,7 +76,7 @@ export class OrganisaerHomeComponent implements OnInit {
       return;
     }
     
-    this.http.get<any>(`http://www.backend.aventuraevents.site/organisaer/dashboardData/${organisaerId}`)
+    this.http.get<any>(`https://backend.aventuraevents.site/organisaer/dashboardData/${organisaerId}`)
       .subscribe(
         (data: any) => {
           console.log('Fetched dashboard data:', data);

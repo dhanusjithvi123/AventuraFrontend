@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AdminService {
-  private baseUrl = 'http://www.backend.aventuraevents.site/admin';
+  private baseUrl = 'https://backend.aventuraevents.site/admin';
 
   constructor(private http: HttpClient) {}
 

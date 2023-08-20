@@ -36,7 +36,7 @@ export class UserNavbarComponent implements OnInit {
   }
 
   logout(): void {
-    this.http.post('http://www.backend.aventuraevents.site/logout', {}, { withCredentials: true })
+    this.http.post('https://backend.aventuraevents.site/logout', {}, { withCredentials: true })
       .subscribe(() => this.authenticated = false);
   }
 }

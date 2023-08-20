@@ -13,7 +13,7 @@ export class AdminHomeComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.http.get<any[]>('http://localhost:5000/users').subscribe(
+    this.http.get<any[]>('https://backend.aventuraevents.siteusers').subscribe(
       (response) => {
         this.users = response;
       },

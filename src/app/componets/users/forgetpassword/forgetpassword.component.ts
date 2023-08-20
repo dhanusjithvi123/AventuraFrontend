@@ -22,7 +22,7 @@ export class ForgetpasswordComponent {
   forgotPasswordFormSubmit() {
     if (this. forgotPasswordForm.valid) {
       const formData = this.forgotPasswordForm.value;
-      this.http.post('http://www.backend.aventuraevents.site/forgotPasswordForm', formData).subscribe(
+      this.http.post('https://backend.aventuraevents.site/forgotPasswordForm', formData).subscribe(
         (response) => {
           Swal.fire('Success', 'OTP  Successful Send!', 'success').then(
             () => {

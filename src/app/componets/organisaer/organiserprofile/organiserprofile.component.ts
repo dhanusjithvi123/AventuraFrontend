@@ -41,7 +41,7 @@ export class OrganiserprofileComponent {
     this._id = localStorage.getItem('organisaerId');
 
     this.http
-      .get<any>(`http://www.backend.aventuraevents.site/organisaer/editprofile/${this._id}`)
+      .get<any>(`https://backend.aventuraevents.site/organisaer/editprofile/${this._id}`)
       .subscribe(
         (res: any) => {
           this.data.firstName = res.firstName;
@@ -71,7 +71,7 @@ export class OrganiserprofileComponent {
     if (this.profileEditingForm.valid) {
       const formData = this.profileEditingForm.value;
 
-      this.http.put<any>(`http://www.backend.aventuraevents.site/organisaer/updateprofile/${this._id}`, formData).subscribe(
+      this.http.put<any>(`https://backend.aventuraevents.site/organisaer/updateprofile/${this._id}`, formData).subscribe(
         (res: any) => {
           console.log(res);
           // Handle the response from the backend as needed

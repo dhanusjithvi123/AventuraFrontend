@@ -32,7 +32,7 @@ export class UserOrganiserlistComponent implements OnInit {
 
 
   fetchEvents(): void {
-    this.http.get<any>('http://www.backend.aventuraevents.site/userorganisaerList').subscribe(
+    this.http.get<any>('https://backend.aventuraevents.site/userorganisaerList').subscribe(
       (res: any) => {
         this.organiser= res;
       },
