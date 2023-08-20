@@ -18,9 +18,6 @@ export class UserServiceService {
     });
   }
 
-  getBaseUrl(): string {
-    return this.baseUrl;
-  }
 
 
   userotp(otp: number, ): Observable<any> {
