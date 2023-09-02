@@ -49,7 +49,7 @@ export class UserHomeComponent implements OnInit {
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
       this.loading = true;
 
-      this.http.get('https://backend.aventuraevents.site/user', { headers, withCredentials: true })
+      this.http.get('http://localhost:5000/user', { headers, withCredentials: true })
         .subscribe(
           (res: any) => {
             this.message = `Hi ${res.firstName}`;
@@ -70,7 +70,7 @@ export class UserHomeComponent implements OnInit {
   }
 
   fetchEvents(): void {
-    this.http.get<any>('https://backend.aventuraevents.site/usereventlist').subscribe(
+    this.http.get<any>('http://localhost:5000/usereventlist').subscribe(
       (res: any) => {
         console.log(res);
         

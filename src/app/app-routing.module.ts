@@ -50,10 +50,7 @@ const routes: Routes = [
   { path: 'organisaer', component: OrganisaersLandingPageComponent },
   { path: 'organisaerlogin', component: OrganisaerLoginComponent },
   { path: 'organisaerregister', component: OrganisaerRegisterComponent },
-  {
-    path: 'payform',
-    component: OrganisaerPayformComponent,
-    canActivate: [OrganisaerGuard],
+  { path: 'payform',component: OrganisaerPayformComponent,canActivate: [OrganisaerGuard],
   },
   { path: 'organisaerhome', component: OrganisaerHomeComponent },
   { path: 'eventadding', component: OrganisaerEventaddingComponent },

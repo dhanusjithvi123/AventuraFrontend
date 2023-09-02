@@ -159,7 +159,7 @@ library.add(faDashboard, faLocation, faShop, faBox, faMoneyBill, faChartBar, faC
     
 
   ],
-  providers: [CookieService,OrganisaerGuard] ,
+  providers: [CookieService,OrganisaerGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
