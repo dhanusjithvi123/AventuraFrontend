@@ -43,9 +43,10 @@ export class OrganisaerLoginComponent implements OnInit {
         Swal.fire('Error', 'Please enter a valid email', 'error');
       } else {
         this.organisaerService.organisaerlogin(admin.email, admin.password).subscribe(
-          (result: { token: any; userId: any; }) => {
+          (result: { token: any; userId: any; adminId: any }) => {
             this.organisaerService.storeToken(result.token);
             localStorage.setItem('organisaerId', result.userId); // Store the user ID in local storage
+            localStorage.setItem('adminId', result.adminId);
 
             this.router.navigate(['organisaerhome']);
           },

@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Emitters } from 'src/app/componets/users/emitter/emitter';
-import { HttpHeaders } from '@angular/common/http';
-import { UserServiceService } from 'src/app/Services/user/user-service.service'
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { Emitters } from 'src/app/componets/users/emitter/emitter';
+import { UserServiceService } from 'src/app/Services/user/user-service.service';
 import { EventDetailsDialogComponent } from '../EventDetailsDialogComponent';
-import { Router } from '@angular/router'
+
 
 export interface Organizer {
   _id: string;
@@ -49,7 +49,7 @@ export class UserHomeComponent implements OnInit {
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
       this.loading = true;
 
-      this.http.get('http://localhost:5000/user', { headers, withCredentials: true })
+      this.http.get('https://backend.aventuraevents.site/user', { headers, withCredentials: true })
         .subscribe(
           (res: any) => {
             this.message = `Hi ${res.firstName}`;
@@ -70,7 +70,7 @@ export class UserHomeComponent implements OnInit {
   }
 
   fetchEvents(): void {
-    this.http.get<any>('http://localhost:5000/usereventlist').subscribe(
+    this.http.get<any>('https://backend.aventuraevents.site/usereventlist').subscribe(
       (res: any) => {
         console.log(res);
         
@@ -90,7 +90,8 @@ export class UserHomeComponent implements OnInit {
 
  
   booking(id: any) {
-  this.router.navigate([`/booking/${id}`])
+    console.log(id);
+    this.router.navigate(['/booking', id]);
 }
 
   openEventDetailsDialog(event: EventData): void {

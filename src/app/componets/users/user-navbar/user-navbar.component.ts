@@ -35,8 +35,14 @@ export class UserNavbarComponent implements OnInit {
     this.router.navigate([`/profile/${this._id}`]);
   }
 
-  logout(): void {
-    this.http.post('https://backend.aventuraevents.site/logout', {}, { withCredentials: true })
-      .subscribe(() => this.authenticated = false);
+  logout() {
+    // Remove the JWT token and adminId from localStorage or perform any other logout actions
+    localStorage.removeItem('usertoken');
+    localStorage.removeItem('userId'); // Assuming you store the admin's ID as 'adminId'
+    
+    // Optionally clear other admin-related data from localStorage
+    // Redirect to the login page or any other desired route
+    this.router.navigate(['login']); // Replace 'login' with your login route
   }
+  
 }

@@ -67,7 +67,7 @@ export class UserSinginComponent implements OnInit {
   signUpSubmit() {
     if (this.signupForm.valid) {
       const formData = this.signupForm.value;
-      this.http.post('http://localhost:5000/register', formData).subscribe(
+      this.http.post('https://backend.aventuraevents.site/register', formData).subscribe(
         (response) => {
           Swal.fire('Success', 'Registration successful!', 'success').then(
             () => {

@@ -17,7 +17,8 @@ export class UserProfileComponent implements OnInit {
     email: '',
     address: '',
   };
-  _id: string | null | undefined;
+  private _id: any;
+
 
   constructor(
     private router: Router,

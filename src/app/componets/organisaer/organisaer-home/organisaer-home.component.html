@@ -5,8 +5,6 @@
   <span>Organisaer</span>
   <span class="example-spacer"></span>
   <button routerLink="../organisaerhome" mat-button>Home</button>
-
-  
 </mat-toolbar>
 <mat-drawer-container autosize>
   <mat-drawer
@@ -38,10 +36,21 @@
         </button>
       </mat-list-item>
       <mat-list-item>
-        <button routerLink="../bookedevent">
-          <mat-icon>Settings</mat-icon> BookedEvents
+        <button routerLink="../bookedevent" mat-button>
+          <mat-icon>event</mat-icon> BookedEvents
         </button>
       </mat-list-item>
+      <mat-list-item>
+        <button (click)="navigateToChat()" mat-button>
+          <mat-icon>chat_bubble</mat-icon> Chat
+        </button>
+      </mat-list-item>
+      <mat-list-item>
+        <button (click)="logout()" mat-button>
+          <mat-icon>logout</mat-icon> Logout
+        </button>
+      </mat-list-item>
+     
     </mat-nav-list>
   </mat-drawer>
   <mat-drawer-content>
@@ -55,10 +64,14 @@
               <div class="card-body">
                 <div class="row no-gutters align-items-center">
                   <div class="col mr-2">
-                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                    <div
+                      class="text-xs font-weight-bold text-primary text-uppercase mb-1"
+                    >
                       Total Events
                     </div>
-                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{ totalPackage }}</div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800">
+                      {{ totalPackage }}
+                    </div>
                   </div>
                   <div class="col-auto">
                     <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -67,17 +80,21 @@
               </div>
             </div>
           </div>
-        
+
           <div class="col-xl-3 col-md-6 mb-4">
             <!-- Card 2 -->
             <div class="card border-left-success shadow h-100 py-2">
               <div class="card-body">
                 <div class="row no-gutters align-items-center">
                   <div class="col mr-2">
-                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                    <div
+                      class="text-xs font-weight-bold text-success text-uppercase mb-1"
+                    >
                       Bookings
                     </div>
-                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{ totalOrders }}</div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800">
+                      {{ totalOrders }}
+                    </div>
                   </div>
                   <div class="col-auto">
                     <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -86,14 +103,16 @@
               </div>
             </div>
           </div>
-        
+
           <div class="col-xl-3 col-md-6 mb-4">
             <!-- Card 3 -->
             <div class="card border-left-success shadow h-100 py-2">
               <div class="card-body">
                 <div class="row no-gutters align-items-center">
                   <div class="col mr-2">
-                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                    <div
+                      class="text-xs font-weight-bold text-success text-uppercase mb-1"
+                    >
                       Profile
                     </div>
                     <div class="h5 mb-0 font-weight-bold text-gray-800"></div>
@@ -107,21 +126,17 @@
               <a routerLink="../organsierprofile" class="stretched-link"></a>
             </div>
           </div>
-          
         </div>
-        
-<!-- ... Your existing code ... -->
 
-      </div>
-  
-      <div class="row">
-        <div class="col-lg-6">
-          <h2>Users</h2>
-          <canvas id="piechart"></canvas>
-        </div>
-       
+        <div>
+          <canvasjs-chart [options]="chartOptions"></canvasjs-chart>
+        </div>   
+
+        <div>
+          <canvasjs-chart [options]="organizerChartOptions"></canvasjs-chart>
+        </div>   
+        
       </div>
     </div>
   </mat-drawer-content>
-  
 </mat-drawer-container>

@@ -1,7 +1,7 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { UserLoginComponent } from './componets/users/user-login/user-login.component';
-import { AppComponent } from './app.component';
+// import { AppComponent } from './app.component';
 import { UserHomeComponent } from './componets/users/user-home/user-home.component';
 import { UserSinginComponent } from './componets/users/user-singin/user-singin.component';
 import { OrganisaerHomeComponent } from './componets/organisaer/organisaer-home/organisaer-home.component';
@@ -33,6 +33,11 @@ import { UserProfileComponent } from './componets/users/user-profile/user-profil
 import { OrganiserprofileComponent } from './componets/organisaer/organiserprofile/organiserprofile.component';
 import { OrganiserRequestComponent } from './componets/admin/organiser-request/organiser-request.component';
 import { ForgetpasswordComponent } from './componets/users/forgetpassword/forgetpassword.component';
+import { OrganizerchatComponent } from './componets/organisaer/organizerchat/organizerchat.component';
+import { AdminchatComponent } from './componets/admin/adminchat/adminchat.component';
+import { ChatUsersListComponent } from './componets/admin/chat-users-list/chat-users-list.component';
+import { PasswordchangeemailComponent } from './componets/users/passwordchangeemail/passwordchangeemail.component';
+import { NewpasswordComponent } from './newpassword/newpassword.component';
 
 const routes: Routes = [
   { path: '', component: UserLandingpageComponent },
@@ -46,30 +51,30 @@ const routes: Routes = [
   { path: 'bookedhistory', component: UserbookinglistComponent },
   {path: 'profile/:id',component:UserProfileComponent},
   {path:'forgetpassword',component:ForgetpasswordComponent},
+  {path:'emailentering',component:PasswordchangeemailComponent},
+  {path:'newpassword',component:NewpasswordComponent},
 
   { path: 'organisaer', component: OrganisaersLandingPageComponent },
   { path: 'organisaerlogin', component: OrganisaerLoginComponent },
   { path: 'organisaerregister', component: OrganisaerRegisterComponent },
-  { path: 'payform',component: OrganisaerPayformComponent,canActivate: [OrganisaerGuard],
-  },
+  { path: 'payform',component: OrganisaerPayformComponent,canActivate: [OrganisaerGuard],},
   { path: 'organisaerhome', component: OrganisaerHomeComponent },
   { path: 'eventadding', component: OrganisaerEventaddingComponent },
   { path: 'eventlist', component: EventlistComponent },
   { path: 'editevent/:id', component: OrganisaerEventeditingComponent },
   { path: 'bookedevent', component: OrganiserbookinglistComponent },
   { path: 'organsierprofile', component:OrganiserprofileComponent},
+  { path: 'organsierchat',component:OrganizerchatComponent},
 
+  { path: 'chatlist',component:ChatUsersListComponent},
+  { path: 'adminchat/:receiver_id', component:AdminchatComponent},
   { path: 'addcategory', component: AdminCategoryAddandEditComponent },
   { path: 'categorylist', component: AdminCategorylistComponent },
   { path: 'userlist', component: UserlistAdminComponent },
   { path: 'organisaerlist', component: OrganisaerAdminComponent },
   { path: 'verfiy',component:OrganiserRequestComponent},
   { path: 'adminlogin', component: AdminLoginComponent },
-  {
-    path: 'adminhome',
-    component: AdminHomeComponent,
-    canActivate: [AuthGuard],
-  },
+  { path: 'adminhome',component: AdminHomeComponent,canActivate: [AuthGuard],},
   { path: '**', component: NotFoundComponent },
 ];
 

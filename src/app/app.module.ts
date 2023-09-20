@@ -72,6 +72,15 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { OrganiserprofileComponent } from './componets/organisaer/organiserprofile/organiserprofile.component';
 import { OrganiserRequestComponent } from './componets/admin/organiser-request/organiser-request.component';
 import { ForgetpasswordComponent } from './componets/users/forgetpassword/forgetpassword.component';
+import { AdminchatComponent } from './componets/admin/adminchat/adminchat.component';
+import { OrganizerchatComponent } from './componets/organisaer/organizerchat/organizerchat.component';
+import { RouterModule, Routes } from '@angular/router';
+import { ChatUsersListComponent } from './componets/admin/chat-users-list/chat-users-list.component';
+import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
+import { PasswordchangeemailComponent } from './componets/users/passwordchangeemail/passwordchangeemail.component';
+import { NewpasswordComponent } from './newpassword/newpassword.component';
+
+
 
 
 
@@ -125,9 +134,15 @@ library.add(faDashboard, faLocation, faShop, faBox, faMoneyBill, faChartBar, faC
     OrganiserprofileComponent,
     OrganiserRequestComponent,
     ForgetpasswordComponent,
+    AdminchatComponent,
+    OrganizerchatComponent,
+    ChatUsersListComponent,
+    PasswordchangeemailComponent,
+    NewpasswordComponent,
   ],
   imports: [
     BrowserModule,
+    CanvasJSAngularChartsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
@@ -156,6 +171,7 @@ library.add(faDashboard, faLocation, faShop, faBox, faMoneyBill, faChartBar, faC
     MatDialogModule,
     ChartModule ,
     MatProgressBarModule,
+    RouterModule,
     
 
   ],

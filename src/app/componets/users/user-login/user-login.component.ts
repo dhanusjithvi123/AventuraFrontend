@@ -48,7 +48,7 @@ export class UserLoginComponent {
   }
   
   forgotPassword(): void {
-    this.router.navigate(['forgetpassword'])
+    this.router.navigate(['emailentering'])
   }
   
   

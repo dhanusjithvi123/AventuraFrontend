@@ -7,7 +7,7 @@ import { CookieService } from 'ngx-cookie-service';
   providedIn: 'root'
 })
 export class UserServiceService {
-  private baseUrl = 'http://localhost:5000';
+  private baseUrl = 'https://backend.aventuraevents.site';
 
   constructor(  private http: HttpClient,) { }
 
@@ -18,10 +18,27 @@ export class UserServiceService {
     });
   }
 
+  newpassword(userId: string, password: string): Observable<any> {
+    // Include the user ID in the URL as a parameter
+    const url = `${this.baseUrl}/newpassword/${userId}`;
+    const user = { password }; // Include the user password in the request body
+    return this.http.put<any>(url, user, {
+      withCredentials: true,
+    });
+  }
+  
+
+
+  userpasswordchanging(email: string): Observable<any> {
+    const user = { email };
+    return this.http.post<any>(`${this.baseUrl}/emailentering`, user, {
+      withCredentials: true,
+    });
+  }
 
 
   userotp(otp: number, ): Observable<any> {
-    const user = { otp};
+    const user = {otp};
     return this.http.post<any>(`${this.baseUrl}/otpverify`,user, {
       withCredentials: true,
     });
@@ -33,7 +50,7 @@ export class UserServiceService {
 
   getToken() {
     console.log(localStorage.getItem('usertoken'));
-    
+
     return localStorage.getItem('usertoken');
   }
 
@@ -44,4 +61,7 @@ export class UserServiceService {
   updateUser (id: any, data: any): Observable<any> {
     return this.http.put<any>(`/updateprofile/${id}`, data);
   }
+
 }
+
+

@@ -1,0 +1,24 @@
+<div class="chat-navbar">
+    <button mat-icon-button (click)="goBack()">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+    <h3></h3>
+  </div>
+<!-- chat-window.component.html -->
+
+<div class="chat-window">
+    <div *ngFor="let message of messages" class="message" [ngClass]="{ 'user-message': message.isUser, 'received-message': !message.isUser }">
+      <div class="message-content">
+        {{ message.text }}
+      </div>
+      <div class="message-timestamp">
+        {{ message.timestamp | date: 'hh:mm a' }}
+      </div>
+    </div>
+  </div>
+  
+  <div class="message-input">
+    <input type="text" [(ngModel)]="newMessage" (keydown.enter)="sendMessage()" placeholder="Type your message..." />
+    <button (click)="sendMessage()" mat-raised-button color="primary">Send</button>
+  </div>
+  

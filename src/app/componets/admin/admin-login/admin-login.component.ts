@@ -44,6 +44,9 @@ export class AdminLoginComponent implements OnInit {
         this.adminService.adminlogin(admin.email, admin.password).subscribe(
           (result) => {
             this.adminService.storeToken(result.token);
+            // Store the user ID in local storage
+            localStorage.setItem('adminId', result.adminId);
+  
             this.router.navigate(['/adminhome']);
           },
           (err) => {
@@ -53,5 +56,6 @@ export class AdminLoginComponent implements OnInit {
       }
     }
   }
+  
   
 }

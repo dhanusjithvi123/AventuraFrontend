@@ -132,7 +132,7 @@
                 <button class="btn btn-primary" *ngIf="event.isBooked">Go to Booking</button>
                 <!-- Show "Booking" button if the event is not booked (isBooked === false) -->
                 <button class="btn btn-primary" *ngIf="!event.isBooked" (click)="booking(event._id)">Booking</button>
-  
+
                 <!-- Always show the "View More" button -->
                 <button class="btn btn-secondary" (click)="openEventDetailsDialog(event)">View More</button>
               </div>
