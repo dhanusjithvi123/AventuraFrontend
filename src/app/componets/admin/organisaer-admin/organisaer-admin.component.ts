@@ -23,7 +23,7 @@ export class OrganisaerAdminComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-    this.http.get<Organisaer[]>('https://backend.aventuraevents.site/organisaer/organisaerList').subscribe(
+    this.http.get<Organisaer[]>('http://localhost:5000/organisaer/organisaerList').subscribe(
       (response) => {
         this.organisaers = response;
         console.log();
@@ -40,7 +40,7 @@ export class OrganisaerAdminComponent implements OnInit {
     const organiserId = organiser._id; // Use the _id field instead of organiserId
     console.log(organiserId);
     
-    this.http.put(`https://backend.aventuraevents.siteorganisaer/blocking/${organiserId}`, organiser).subscribe(
+    this.http.put(`http://localhost:5000organisaer/blocking/${organiserId}`, organiser).subscribe(
       (response) => {
         Swal.fire('Success', 'Organiser Block successful!', 'success')
       },

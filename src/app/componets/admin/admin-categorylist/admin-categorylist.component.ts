@@ -30,7 +30,7 @@ export class AdminCategorylistComponent implements OnInit {
   ngOnInit(): void {
     this.initializeForm();
 
-    this.http.get<{ category: Category[] }>('https://backend.aventuraevents.siteadmin/categorylist').subscribe(
+    this.http.get<{ category: Category[] }>('http://localhost:5000admin/categorylist').subscribe(
       (response) => {
         this.categories = response.category;
         this.dataCount = this.categories.length; // Set the data count
@@ -55,7 +55,7 @@ export class AdminCategorylistComponent implements OnInit {
       const formData = this.categoryForm.value;
       console.log(formData);
   
-      this.http.post('https://backend.aventuraevents.siteadmin/Categoryadding', formData)
+      this.http.post('http://localhost:5000admin/Categoryadding', formData)
         .subscribe(
           (response) => {
             console.log(response); // Add this line to see the response from the server

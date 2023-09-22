@@ -25,7 +25,7 @@ export class OrganisaerHomeComponent implements OnInit {
   ngOnInit(): void {
    const organisaerId = localStorage.getItem('organisaerId');
 
-    this.http.get<any[]>('https://backend.aventuraevents.site/users').subscribe(
+    this.http.get<any[]>('http://localhost:5000/users').subscribe(
       (response) => {
         this.users = response;
         this.processUserDataForChart(response);
@@ -35,7 +35,7 @@ export class OrganisaerHomeComponent implements OnInit {
       }
     );
   
-    this.http.get<any[]>(`https://backend.aventuraevents.site/organisaer/eventlists/${organisaerId}`)
+    this.http.get<any[]>(`http://localhost:5000/organisaer/eventlists/${organisaerId}`)
   .subscribe(
     (response) => {
       this.organizers = response; // Assuming response is in the expected format
@@ -283,7 +283,7 @@ export class OrganisaerHomeComponent implements OnInit {
       return;
     }
     
-    this.http.get<any>(`https://backend.aventuraevents.site/organisaer/dashboardData/${organisaerId}`)
+    this.http.get<any>(`http://localhost:5000/organisaer/dashboardData/${organisaerId}`)
       .subscribe(
         (data: any) => {
           console.log('Fetched dashboard data:', data);
@@ -315,7 +315,7 @@ export class OrganisaerHomeComponent implements OnInit {
       
 
       // Make an HTTP request to the backend and send the data
-      this.http.post('https://backend.aventuraevents.site/admin/createNewChatRoom', data).subscribe(
+      this.http.post('http://localhost:5000/admin/createNewChatRoom', data).subscribe(
         (response) => {
           // Handle the response from the backend if needed
           console.log(response);

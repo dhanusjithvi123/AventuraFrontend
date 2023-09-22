@@ -42,7 +42,7 @@ export class OrganisaerRegisterComponent implements OnInit {
   signUpSubmit() {
     if (this.signupForm.valid) {
       const formData = this.signupForm.value;
-      this.http.post('https://backend.aventuraevents.site/organisaer/organisaerregister', formData).subscribe(
+      this.http.post('http://localhost:5000/organisaer/organisaerregister', formData).subscribe(
         (response) => {
           Swal.fire('Success', 'Registration successful!', 'success').then(() => {
             this.router.navigate(['/organisaerlogin']);

@@ -131,6 +131,6 @@ export class OrganizerchatComponent implements OnInit {
   }
 
   goBack(): void {
-    this.router.navigate(['chatlist']);
+    this.router.navigate(['organisaerhome']);
   }
 }

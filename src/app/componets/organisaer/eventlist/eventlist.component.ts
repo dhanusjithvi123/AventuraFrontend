@@ -37,7 +37,7 @@ export class EventlistComponent implements OnInit {
     const organisaerId = localStorage.getItem('organisaerId');
 
     this.http
-      .get<any>(`https://backend.aventuraevents.site/organisaer/eventlist/${organisaerId}`)
+      .get<any>(`http://localhost:5000/organisaer/eventlist/${organisaerId}`)
       .subscribe(
         (response) => {
           console.log(response.events);
@@ -69,7 +69,7 @@ export class EventlistComponent implements OnInit {
     };
   
     // Send the request to the backend
-    this.http.put<any>(`https://backend.aventuraevents.site/organisaer/eventblocking/${eventId}`, requestPayload).subscribe(
+    this.http.put<any>(`http://localhost:5000/organisaer/eventblocking/${eventId}`, requestPayload).subscribe(
       (response) => {
         console.log('Status updated successfully!', response);
   

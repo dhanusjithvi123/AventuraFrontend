@@ -18,7 +18,7 @@ export class UserHeaderComponent  implements OnInit {
   }
 
   logout(): void{
-    this.http.post('https://backend.aventuraevents.site/logout',{},{withCredentials:true})
+    this.http.post('http://localhost:5000/logout',{},{withCredentials:true})
     .subscribe(() => this.authenticated = false)
   }
 }

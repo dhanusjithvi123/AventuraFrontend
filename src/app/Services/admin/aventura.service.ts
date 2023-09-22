@@ -7,7 +7,7 @@ import { CookieService } from 'ngx-cookie-service';
   providedIn: 'root',
 })
 export class AventuraService {
-  private baseUrl = 'https://backend.aventuraevents.site';
+  private baseUrl = 'http://localhost:5000';
 
   constructor(
     private http: HttpClient,

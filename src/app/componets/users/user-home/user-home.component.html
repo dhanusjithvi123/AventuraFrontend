@@ -36,6 +36,12 @@
   }
 </style>
 
+<div >
+  <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="ball-scale-multiple" [fullScreen]="true">
+      <p style="color: white"> Loading... </p>
+    </ngx-spinner>
+</div>
+
 <div class="container">
   <div class="banner-container" style="top: 8px">
     <div
@@ -51,8 +57,8 @@
             alt="First slide"
           />
           <div class="carousel-caption">
-            <h3> {{ message }}</h3>
-            <p> Welcome To Aventura Events.</p>
+            <h3>{{ message }}</h3>
+            <p>Welcome To Aventura Events.</p>
           </div>
         </div>
         <div class="carousel-item">
@@ -64,7 +70,7 @@
           <div class="carousel-caption">
             <h3>You Can select</h3>
             <p>Additional content or description here...</p>
-          </div> 
+          </div>
         </div>
       </div>
     </div>
@@ -89,9 +95,9 @@
   </div>
 
   {{ message }}
-  <div class="card border-primary mb-3" class="card">
-    <div class="card-header">Featured</div>
-    <div class="card-body">
+  <div class="carde border-primary mb-3 " class="carde">
+
+    <div class="carde-body">
       <div style="display: flex; align-items: center">
         <!-- Add the image here -->
         <img
@@ -103,11 +109,16 @@
 
         <div>
           <!-- Rest of the card content -->
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">
-            AVENTURA EVENTS IS A FULL-SERVICE EVENT MANAGEMENT FIRM BASED IN CALGARY, ALBERTA.
- OUR COMPANY WAS FOUNDED ON THE FUSION OF OUR PASSION FOR BOTH BUSINESS AND EVENTS.
- WE PRIDE OURSELVES ON BRINGING A FRESH AND UNIQUE APPROACH TO THE EVENT MANAGEMENT INDUSTRY. AT AVENTURA EVENTS, WE ARE DEDICATED TO DELIVERING EXCEPTIONAL EXPERIENCES AND   CREATING MEMORABLE OCCASIONS FOR OUR CLIENTS.WITH OUR EXPERTISE, ATTENTION TO DETAIL, AND CREATIVITY,  WE STRIVE TO EXCEED EXPECTATIONS AND MAKE EVERY EVENT A REMARKABLE ADVENTURE.
+          <h5 class="carde-title">Special title treatment</h5>
+          <p class="carde-text">
+            AVENTURA EVENTS IS A FULL-SERVICE EVENT MANAGEMENT FIRM BASED IN
+            CALGARY, ALBERTA. OUR COMPANY WAS FOUNDED ON THE FUSION OF OUR
+            PASSION FOR BOTH BUSINESS AND EVENTS. WE PRIDE OURSELVES ON BRINGING
+            A FRESH AND UNIQUE APPROACH TO THE EVENT MANAGEMENT INDUSTRY. AT
+            AVENTURA EVENTS, WE ARE DEDICATED TO DELIVERING EXCEPTIONAL
+            EXPERIENCES AND CREATING MEMORABLE OCCASIONS FOR OUR CLIENTS.WITH
+            OUR EXPERTISE, ATTENTION TO DETAIL, AND CREATIVITY, WE STRIVE TO
+            EXCEED EXPECTATIONS AND MAKE EVERY EVENT A REMARKABLE ADVENTURE.
           </p>
           <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
@@ -116,11 +127,16 @@
   </div>
 
   <div class="container">
-    <div class="row" style="margin: 10px;">
+    <div class="row" style="margin: 10px">
       <ng-container>
         <div class="col-md-4" *ngFor="let event of events">
           <div class="card mb-4">
-            <img class="card-img-top" [src]="getImageUrl(event)" alt="Event Image" style="max-height: 200px; max-width: 500px;">
+            <img
+              class="card-img-top"
+              [src]="getImageUrl(event)"
+              alt="Event Image"
+              style="max-height: 200px; max-width: 500px"
+            />
             <div class="card-body">
               <h2 class="card-title">{{ event.eventName }}</h2>
               <p class="card-text">{{ event.features }}</p>
@@ -129,12 +145,25 @@
             <div class="card-footer">
               <div class="button-group">
                 <!-- Show "Go to Booking" button if the event is already booked (isBooked === true) -->
-                <button class="btn btn-primary" *ngIf="event.isBooked">Go to Booking</button>
+                <button class="btn btn-primary" *ngIf="event.isBooked">
+                  Go to Booking
+                </button>
                 <!-- Show "Booking" button if the event is not booked (isBooked === false) -->
-                <button class="btn btn-primary" *ngIf="!event.isBooked" (click)="booking(event._id)">Booking</button>
+                <button
+                  class="btn btn-primary"
+                  *ngIf="!event.isBooked"
+                  (click)="booking(event._id)"
+                >
+                  Booking
+                </button>
 
                 <!-- Always show the "View More" button -->
-                <button class="btn btn-secondary" (click)="openEventDetailsDialog(event)">View More</button>
+                <button
+                  class="btn btn-secondary"
+                  (click)="openEventDetailsDialog(event)"
+                >
+                  View More
+                </button>
               </div>
             </div>
           </div>
@@ -144,7 +173,7 @@
   </div>
 </div>
 
-  <!-- Footer -->
+<!-- Footer -->
 <footer class="bg-dark text-center text-white">
   <!-- Grid container -->
   <div class="container p-4">
@@ -181,24 +210,22 @@
       ></a>
     </section>
     <!-- Section: Social media -->
-    
+
     <!-- Section: Text -->
     <section class="mb-4">
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio earum
-        repellat quaerat voluptatibus placeat nam, commodi optio pariatur est quia magnam
-        eum harum corrupti dicta, aliquam sequi voluptate quas.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio
+        earum repellat quaerat voluptatibus placeat nam, commodi optio pariatur
+        est quia magnam eum harum corrupti dicta, aliquam sequi voluptate quas.
       </p>
     </section>
     <!-- Section: Text -->
   </div>
   <!-- Copyright -->
-  <div class="text-center p-3" style="background-color:#212529;">
+  <div class="text-center p-3" style="background-color: #212529">
     © 2023 Copyright:
     <a class="text-white" href="https://mdbootstrap.com/">AVENTURA EVENTS</a>
   </div>
   <!-- Copyright -->
 </footer>
 <!-- Footer -->
-
-

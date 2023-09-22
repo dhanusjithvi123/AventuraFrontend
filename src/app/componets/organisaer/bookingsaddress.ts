@@ -128,7 +128,7 @@ export class bookingsaddress {
 
  canceledupdateStatus(newStatus: string, bookingId: string): void {
   this.http
-    .put<any>(`https://backend.aventuraevents.site/organisaer/cancelBooking/${bookingId}`, {})
+    .put<any>(`http://localhost:5000/organisaer/cancelBooking/${bookingId}`, {})
     .subscribe(
       (response) => {
         Swal.fire('Success', 'Booking has been canceled!', 'success').then(() => {
@@ -144,7 +144,7 @@ export class bookingsaddress {
 
 finishupdateStatus(newStatus: string, bookingId: string): void {
   this.http
-    .put<any>(`hhttps://backend.aventuraevents.site/organisaer/finiashBooking/${bookingId}`, {})
+    .put<any>(`hhttp://localhost:5000/organisaer/finiashBooking/${bookingId}`, {})
     .subscribe(
       (response) => {
         Swal.fire('Success', 'Booking has been finished!', 'success').then(() => {

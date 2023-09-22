@@ -87,7 +87,7 @@ export class AdminchatComponent implements OnInit {
   // Fetch previous chat messages from the backend
   fetchPreviousChatMessages(sender_id: string, receiver_id: string): void {
     // Make an HTTP GET request to your backend endpoint to fetch chat messages
-    this.http.get(`https://backend.aventuraevents.site/admin/getAllMessages/${sender_id}/${receiver_id}`).subscribe(
+    this.http.get(`http://localhost:5000/admin/getAllMessages/${sender_id}/${receiver_id}`).subscribe(
       (response: any) => {
         // Handle the retrieved messages here
         this.messages = response.messages.map((message: any) => {

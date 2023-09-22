@@ -39,7 +39,7 @@ export class OrganisaerEventeditingComponent implements OnInit {
       phone: ['', [Validators.required, Validators.pattern(/^(\+\d{1,3}[- ]?)?\d{10}$/)]],
     });
 
-    this.http.get<any>(`https://backend.aventuraevents.site/organisaer/editevent/${this.id}`).subscribe(
+    this.http.get<any>(`http://localhost:5000/organisaer/editevent/${this.id}`).subscribe(
       (res: any) => {
         
         this.data.eventName = res.eventName;

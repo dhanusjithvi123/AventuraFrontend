@@ -60,7 +60,7 @@ export class OrganiserbookinglistComponent implements OnInit {
     const organisaerId = localStorage.getItem('organisaerId');
 
     this.http
-      .get<any>(`https://backend.aventuraevents.site/organisaer/bookedlist/${organisaerId}`)
+      .get<any>(`http://localhost:5000/organisaer/bookedlist/${organisaerId}`)
       .subscribe(
         (response) => {
           console.log(response);

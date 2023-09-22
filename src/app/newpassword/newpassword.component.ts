@@ -25,7 +25,7 @@ export class NewpasswordComponent {
       const formData = this.loginForm.value;
 
       // Include userId as a URL parameter
-      const url = `https://backend.aventuraevents.site/newpassword/${this._id}`;
+      const url = `http://localhost:5000/newpassword/${this._id}`;
       const body = { password: formData.password };
 
       this.http.put(url, body, { withCredentials: true }).subscribe(

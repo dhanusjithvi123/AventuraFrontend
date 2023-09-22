@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { NgxSpinnerService } from 'ngx-spinner'
 import { Router, ActivatedRoute } from '@angular/router';
 import {
   FormGroup,
@@ -73,12 +74,15 @@ export class UserBookingComponent implements OnInit {
     private http: HttpClient,
     private router: Router,
     private route: ActivatedRoute,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private spinner: NgxSpinnerService
   ) {}
 
   private razorpayResponse: any;
 
   ngOnInit(): void {
+    this.spinner.show();
+    
     this.id = this.route.snapshot.paramMap.get('id');
     this.fetchEvents();
 
@@ -99,13 +103,15 @@ export class UserBookingComponent implements OnInit {
   }
 
   fetchEvents(): void {
-    this.http.get<any>(`https://backend.aventuraevents.site/booking/${this.id}`).subscribe(
+    this.http.get<any>(`http://localhost:5000/booking/${this.id}`).subscribe(
       (res: any) => {
         this.data = res;
+        this.spinner.hide();
         console.log(res);
       },
       (err) => {
         console.error(err);
+        this.spinner.hide();
       }
     );
   }
@@ -126,6 +132,7 @@ export class UserBookingComponent implements OnInit {
 
   submitForm(): void {
     // Mark the form as submitted
+    
     this.isFormSubmitted = true;
 
     // Check if the form is valid before proceeding
@@ -150,7 +157,7 @@ export class UserBookingComponent implements OnInit {
     // For example, you can send the form data to the backend using HttpClient.post()
     // ... (previous code)
     this.http
-      .post<any>('https://backend.aventuraevents.site/submit_booking', formData)
+      .post<any>('http://localhost:5000/submit_booking', formData)
       .subscribe(
         (res: any) => {
           console.log('Form submitted successfully!', res);
@@ -221,9 +228,9 @@ export class UserBookingComponent implements OnInit {
   
     const id = localStorage.getItem('userId')
     console.log("userid"+id);
-    
+    this.spinner.show();
     // Send the data to the backend API
-    this.http.post<any>('https://backend.aventuraevents.site/paymetcomformsend', {
+    this.http.post<any>('http://localhost:5000/paymetcomformsend', {
       orderId: this.razorpayResponse.razorpay_order_id.toString(),
       name: this.userForm.value.username,
       email: this.userForm.value.useremail,
@@ -238,9 +245,11 @@ export class UserBookingComponent implements OnInit {
         console.log('Data sent to backend successfully!', res);
         // Redirect to the event list page after successful payment and data submission
         this.router.navigate(['/event']);
+        this.spinner.hide();
       },
       (err) => {
         console.error('Failed to send data to backend!', err);
+        this.spinner.hide();
         // Optionally, you can display an error message to the user
       }
     );

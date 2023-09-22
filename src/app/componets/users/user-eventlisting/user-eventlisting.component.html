@@ -1,4 +1,10 @@
 <app-user-navbar></app-user-navbar>
+<div >
+  <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="ball-scale-multiple" [fullScreen]="true">
+      <p style="color: white"> Loading... </p>
+    </ngx-spinner>
+</div>
+
 <app-search (searchTextChanged)="onSearchTextEntered($event)"></app-search>
 <div class="container">
   <div class="row" style="margin: 10px;">

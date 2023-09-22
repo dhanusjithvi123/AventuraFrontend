@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
 import { EventDetailsDialogComponent } from '../EventDetailsDialogComponent';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner'
 
 
 export interface Organizer {
@@ -38,20 +39,23 @@ export class UserEventlistingComponent implements OnInit {
   noDataImagePath: string = '../assets/images/no_data-removebg-preview.png'
   noDataGif: string = ''
 
-  constructor(private http: HttpClient, private dialog: MatDialog,private router: Router) {}
+  constructor(private http: HttpClient, private dialog: MatDialog,private router: Router,private spinner: NgxSpinnerService) {}
 
   ngOnInit(): void {
+    this.spinner.show(); // Show the loading spinner
     this.fetchEvents();
   }
 
   fetchEvents(): void {
-    this.http.get<any>('https://backend.aventuraevents.site/usereventlist').subscribe(
+    this.http.get<any>('http://localhost:5000/usereventlist').subscribe(
       (res: any) => {
         
         this.events = res;
+        this.spinner.hide();
       },
       (err) => {
         console.error(err);
+        this.spinner.hide();
       }
     );
   }

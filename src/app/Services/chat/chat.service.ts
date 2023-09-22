@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import io from 'socket.io-client';
-const url = 'https://backend.aventuraevents.site';
+const url = 'http://localhost:5000';
 
 @Injectable({
   providedIn: 'root',

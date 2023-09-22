@@ -15,7 +15,7 @@ export class AdminHomeComponent implements OnInit {
   constructor(private http: HttpClient,private router: Router) {}
 
   ngOnInit(): void {
-    this.http.get<any[]>('https://backend.aventuraevents.site/users').subscribe(
+    this.http.get<any[]>('http://localhost:5000/users').subscribe(
       (response) => {
         this.users = response;
         this.processUserDataForChart(response);
@@ -25,7 +25,7 @@ export class AdminHomeComponent implements OnInit {
       }
     );
 
-    this.http.get<any[]>('https://backend.aventuraevents.site/organisaer/organisaerList')
+    this.http.get<any[]>('http://localhost:5000/organisaer/organisaerList')
       .subscribe(
         (response) => {
           this.organizers = response;

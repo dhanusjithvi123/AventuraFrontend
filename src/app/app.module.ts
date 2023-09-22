@@ -79,6 +79,7 @@ import { ChatUsersListComponent } from './componets/admin/chat-users-list/chat-u
 import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
 import { PasswordchangeemailComponent } from './componets/users/passwordchangeemail/passwordchangeemail.component';
 import { NewpasswordComponent } from './newpassword/newpassword.component';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 
 
@@ -172,7 +173,7 @@ library.add(faDashboard, faLocation, faShop, faBox, faMoneyBill, faChartBar, faC
     ChartModule ,
     MatProgressBarModule,
     RouterModule,
-    
+    NgxSpinnerModule,
 
   ],
   providers: [CookieService,OrganisaerGuard],

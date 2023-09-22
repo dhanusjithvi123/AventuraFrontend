@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { Emitters } from 'src/app/componets/users/emitter/emitter';
 import { UserServiceService } from 'src/app/Services/user/user-service.service';
 import { EventDetailsDialogComponent } from '../EventDetailsDialogComponent';
+import { NgxSpinnerService} from "ngx-spinner";
 
 
 export interface Organizer {
@@ -40,45 +41,52 @@ export class UserHomeComponent implements OnInit {
   loading = false; // Add a loading state property
   progressPercentage = 0; // Progress percentage for the progress bar
 
-  constructor(private http: HttpClient, private userService: UserServiceService,private dialog: MatDialog,private router: Router) {}
+  constructor(private http: HttpClient, private userService: UserServiceService,private dialog: MatDialog,private router: Router,private spinner:  NgxSpinnerService) {}
 
   ngOnInit(): void {
-    this.fetchEvents();
-    const token = this.userService.getToken();
-    if (token) {
-      const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-      this.loading = true;
+    this.spinner.show(); // Show the loading spinner
 
-      this.http.get('https://backend.aventuraevents.site/user', { headers, withCredentials: true })
-        .subscribe(
-          (res: any) => {
-            this.message = `Hi ${res.firstName}`;
-            Emitters.authEmitter.emit(true);
-          },
-          (err) => {
-            this.message = "You are not logged in";
-            Emitters.authEmitter.emit(false);
-          }
-        )
-        .add(() => {
-          this.loading = false;
-        });
-    } else {
-      this.message = "You are not logged in";
-      Emitters.authEmitter.emit(false);
-    }
+    // Simulate a 5-second delay
+    setTimeout(() => {
+      const token = this.userService.getToken();
+      if (token) {
+        const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+
+        this.http
+          .get('http://localhost:5000/user', { headers, withCredentials: true })
+          .subscribe(
+            (res: any) => {
+              this.message = `Hi ${res.firstName}`;
+              Emitters.authEmitter.emit(true);
+            },
+            (err) => {
+              this.message = 'You are not logged in';
+              Emitters.authEmitter.emit(false);
+            }
+          )
+          .add(() => {
+            this.loading = false;
+          });
+      } else {
+        this.message = 'You are not logged in';
+        Emitters.authEmitter.emit(false);
+      }
+    }, 5000); // Simulated delay of 5 seconds
+
+    // Fetch events after the loading spinner is shown
+    this.fetchEvents();
   }
 
   fetchEvents(): void {
-    this.http.get<any>('https://backend.aventuraevents.site/usereventlist').subscribe(
+    this.http.get<any>('http://localhost:5000/usereventlist').subscribe(
       (res: any) => {
         console.log(res);
-        
         this.events = res;
-        
+        this.spinner.hide(); // Hide the loading spinner when the HTTP request is complete
       },
       (err) => {
         console.error(err);
+        this.spinner.hide(); // Hide the loading spinner in case of an error
       }
     );
   }

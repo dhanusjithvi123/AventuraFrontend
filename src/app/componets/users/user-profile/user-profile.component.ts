@@ -40,7 +40,7 @@ export class UserProfileComponent implements OnInit {
     this._id = localStorage.getItem('userId');
 
     this.http
-      .get<any>(`https://backend.aventuraevents.site/editprofile/${this._id}`)
+      .get<any>(`http://localhost:5000/editprofile/${this._id}`)
       .subscribe(
         (res: any) => {
           this.data.firstName = res.firstName;
@@ -67,7 +67,7 @@ export class UserProfileComponent implements OnInit {
     if (this.profileEditingForm.valid) {
       const formData = this.profileEditingForm.value;
 
-      this.http.put<any>(`https://backend.aventuraevents.site/updateprofile/${this._id}`, formData).subscribe(
+      this.http.put<any>(`http://localhost:5000/updateprofile/${this._id}`, formData).subscribe(
         (res: any) => {
           console.log(res);
           // Handle the response from the backend as needed

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { NgxSpinnerService } from 'ngx-spinner'
 
 export interface Organizer {
   _id: string;
@@ -37,19 +38,21 @@ export interface BookedData {
 export class UserbookinglistComponent implements OnInit {
   bookedlist: BookedData[] = [];
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,private spinner: NgxSpinnerService) {}
 
   noDataImagePath: string = '../assets/images/no_data-removebg-preview.png'
 
   ngOnInit(): void {
+    this.spinner.show();
     const userId = localStorage.getItem('userId');
 
     this.http
-      .get<any>(`https://backend.aventuraevents.site/userbookedevent/${userId}`)
+      .get<any>(`http://localhost:5000/userbookedevent/${userId}`)
       .subscribe(
         (response) => {
           console.log(response);
           this.bookedlist = response.bookedlist;
+          this.spinner.hide();
         },
         (error) => {
           console.error(error);
@@ -70,7 +73,7 @@ export class UserbookinglistComponent implements OnInit {
   }
 
   cancelBooking(bookingId: string, eventId: string): void {
-    this.http.put<any>(`https://backend.aventuraevents.site/cancelBooking/${bookingId}`, {})
+    this.http.put<any>(`http://localhost:5000/cancelBooking/${bookingId}`, {})
       .subscribe(
         (response) => {
           console.log(`Cancelled booking with ID: ${bookingId}`);
@@ -90,7 +93,7 @@ export class UserbookinglistComponent implements OnInit {
       // ... Other fields to update if needed
     };
   
-    this.http.put<any>(`https://backend.aventuraevents.site/updateEvent/${eventId}`, updateData)
+    this.http.put<any>(`http://localhost:5000/updateEvent/${eventId}`, updateData)
       .subscribe(
         (response) => {
           console.log(`Updated event booking status for event ID: ${eventId}`);

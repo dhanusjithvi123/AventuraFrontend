@@ -23,7 +23,7 @@ export class ChatUsersListComponent implements OnInit {
   constructor(private http: HttpClient, private router: Router) {}
 
   ngOnInit(): void {
-    this.http.get<Organisaer[]>('https://backend.aventuraevents.site/organisaer/organisaerList').subscribe(
+    this.http.get<Organisaer[]>('http://localhost:5000/organisaer/organisaerList').subscribe(
       (response) => {
         this.organisaers = response;
       },
@@ -49,7 +49,7 @@ export class ChatUsersListComponent implements OnInit {
       
 
       // Make an HTTP request to the backend and send the data
-      this.http.post('https://backend.aventuraevents.site/admin/createNewChatRoom', data).subscribe(
+      this.http.post('http://localhost:5000/admin/createNewChatRoom', data).subscribe(
         (response) => {
           // Handle the response from the backend if needed
           console.log(response);
