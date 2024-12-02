@@ -40,7 +40,7 @@ export class OrganisaerAdminComponent implements OnInit {
     const organiserId = organiser._id; // Use the _id field instead of organiserId
     console.log(organiserId);
     
-    this.http.put(`http://localhost:5000organisaer/blocking/${organiserId}`, organiser).subscribe(
+    this.http.put(`https://backend.aventuraevents.siteorganisaer/blocking/${organiserId}`, organiser).subscribe(
       (response) => {
         Swal.fire('Success', 'Organiser Block successful!', 'success')
       },

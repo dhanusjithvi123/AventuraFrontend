@@ -17,7 +17,7 @@ export class AdminLoginComponent implements OnInit {
     private http: HttpClient,
     private formBuilder: FormBuilder,
     private adminService: AventuraService, // Inject AdminService
-    private router: Router
+    
   ) {
     this.form = this.formBuilder.group({
       email: '',

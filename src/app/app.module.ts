@@ -80,6 +80,7 @@ import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
 import { PasswordchangeemailComponent } from './componets/users/passwordchangeemail/passwordchangeemail.component';
 import { NewpasswordComponent } from './newpassword/newpassword.component';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { LoginComponent } from './Component/admin/login/login.component';
 
 
 
@@ -140,6 +141,7 @@ library.add(faDashboard, faLocation, faShop, faBox, faMoneyBill, faChartBar, faC
     ChatUsersListComponent,
     PasswordchangeemailComponent,
     NewpasswordComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
